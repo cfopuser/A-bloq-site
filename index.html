@@ -32,7 +32,7 @@
     <div id="shutter-loader" class="fixed inset-0 z-[100] bg-m3-surface dark:bg-m3-surface-dark flex items-center justify-center transition-transform duration-700 ease-out">
         <div class="flex flex-col items-center gap-6">
             <div class="w-16 h-16 bg-m3-primary/10 rounded-3xl p-3 animate-pulse">
-                <img src="Images/a-bloq-logo.png" alt="A Bloq Logo" class="w-full h-full object-contain grayscale opacity-60 dark:invert">
+                <img src="Images/a-bloq-logo.png" alt="A Bloq Lock Logo" class="w-full h-full object-contain grayscale opacity-60 dark:invert">
             </div>
             <div class="h-1 w-48 bg-m3-surface-variant dark:bg-m3-surface-variant-dark rounded-full overflow-hidden">
                 <div class="h-full bg-m3-primary animate-[loading_1.5s_infinite_ease-in-out]"></div>
@@ -44,7 +44,7 @@
     <nav class="sticky top-0 z-50 glass px-4 py-3 flex items-center justify-between transition-all duration-500">
         <div class="flex items-center gap-4 group cursor-pointer" @click="window.scrollTo(0,0)">
             <div class="p-2 transition-colors">
-                <img src="Images/a-bloq-logo.png" alt="A Bloq Logo" 
+                <img src="Images/a-bloq-logo.png" alt="A Bloq Lock Logo" 
                      class="w-8 h-8 object-contain grayscale opacity-50 contrast-125 dark:invert hover:opacity-100 transition-opacity">
             </div>
             <span class="font-black text-2xl tracking-tighter hidden sm:block bg-gradient-to-br from-m3-primary to-m3-secondary bg-clip-text text-transparent" x-text="translations[lang].title"></span>
@@ -207,7 +207,7 @@
             <div class="relative">
                 <div class="sticky top-32">
                     <h2 class="text-5xl font-black mb-8 text-center lg:text-start" x-text="translations[lang].navInstall"></h2>
-                    <p class="text-xl text-m3-on-surface-variant mb-12 text-center lg:text-start leading-relaxed">הנה מה שצריך לעשות כדי להעלות את הכלי ולהפעיל את ההרשאות. שימו לב לסדר, זה קריטי.</p>
+                    <p class="text-xl text-m3-on-surface-variant mb-12 text-center lg:text-start leading-relaxed">להלן השלבים הנדרשים להגדרת המערכת והענקת הרשאות הניהול. נדגיש כי יש להיצמד לסדר הפעולות המדויק לצורך פעולה תקינה.</p>
                     <div class="hidden lg:block">
                         <div class="p-8 bg-m3-primary/5 rounded-[3rem] border-2 border-m3-primary/10 relative overflow-hidden group">
                            <div class="absolute top-0 left-0 w-2 h-full bg-m3-primary scale-y-0 group-hover:scale-y-100 transition-transform origin-top duration-500"></div>
@@ -312,7 +312,7 @@
                     <span class="material-symbols-outlined text-5xl text-m3-on-surface">desktop_windows</span>
                     <h3 class="text-3xl font-black" x-text="translations[lang].winInstaller"></h3>
                 </div>
-                <p class="text-m3-on-surface-variant text-lg">כלי ייעודי למחשב האישי שלכם. הוא דואג להגדיר את כל ענייני הניהול בלחיצת כפתור אחת פשוטה.</p>
+                <p class="text-m3-on-surface-variant text-lg" x-text="translations[lang].winInstallerDesc"></p>
                 <div class="mt-4 text-m3-on-surface-variant font-bold flex items-center gap-2 group-hover:text-m3-on-surface transition-colors">
                     <span x-text="translations[lang].forumMain"></span>
                     <span class="material-symbols-outlined text-sm">open_in_new</span>
@@ -435,7 +435,7 @@
     <!-- Footer -->
     <footer class="bg-m3-surface-variant/30 dark:bg-m3-surface-variant-dark py-24 mt-24">
         <div class="max-w-6xl mx-auto px-6 text-center">
-            <img src="Images/a-bloq-logo.png" alt="A Bloq" class="w-20 h-20 mx-auto mb-8 grayscale opacity-50 contrast-125 dark:invert">
+            <img src="Images/a-bloq-logo.png" alt="A Bloq Lock" class="w-20 h-20 mx-auto mb-8 grayscale opacity-50 contrast-125 dark:invert">
             <p class="text-2xl text-m3-on-surface-variant dark:text-m3-on-surface-dark mb-12 max-w-3xl mx-auto" x-text="translations[lang].footerDesc"></p>
             
             <div class="flex flex-wrap justify-center gap-10 mb-16 font-black text-m3-on-surface-variant dark:text-m3-on-surface-dark/50 uppercase tracking-widest text-sm">
@@ -461,7 +461,7 @@
                 <p class="text-m3-error font-bold leading-relaxed" x-text="translations[lang].disclaimer"></p>
             </div>
             
-            <p class="text-m3-on-surface-variant/40 dark:text-m3-on-surface-dark/20 font-mono text-xs uppercase tracking-tighter">&copy; 2026 A Bloq Open Source Project. Crafted with passion.</p>
+            <p class="text-m3-on-surface-variant/40 dark:text-m3-on-surface-dark/20 font-mono text-xs uppercase tracking-tighter">&copy; 2026 A Bloq Lock Open Source Project. Crafted with professional care.</p>
         </div>
     </footer>
 
