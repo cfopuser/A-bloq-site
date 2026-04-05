@@ -55,6 +55,7 @@
         <div class="hidden lg:flex gap-8 items-center shrink-0">
             <a href="#features" class="text-sm font-bold opacity-70 hover:opacity-100 hover:text-m3-primary transition-all uppercase tracking-widest whitespace-nowrap" x-text="translations[lang].navFeatures"></a>
             <a href="#install" class="text-sm font-bold opacity-70 hover:opacity-100 hover:text-m3-primary transition-all uppercase tracking-widest whitespace-nowrap" x-text="translations[lang].navInstall"></a>
+            <a href="#gallery" class="text-sm font-bold opacity-70 hover:opacity-100 hover:text-m3-primary transition-all uppercase tracking-widest whitespace-nowrap" x-text="translations[lang].navGallery"></a>
             <a href="#faq" class="text-sm font-bold opacity-70 hover:opacity-100 hover:text-m3-primary transition-all uppercase tracking-widest whitespace-nowrap" x-text="translations[lang].faqTitle"></a>
         </div>
 
@@ -403,28 +404,6 @@
         </div>
     </section>
 
-    <!-- Changelog -->
-    <section id="changelog" class="max-w-4xl mx-auto px-6 py-24" x-data="{ activeVersion: 0 }">
-        <h2 class="text-4xl font-black mb-16 text-center" x-text="translations[lang].changelogTitle"></h2>
-        
-        <div class="space-y-4">
-            <template x-for="(version, index) in versions" :key="version.tag">
-                <div class="m3-card overflow-hidden">
-                    <button @click="activeVersion = activeVersion === index ? null : index" class="w-full p-8 flex justify-between items-center text-start m3-ripple">
-                        <span class="text-2xl font-bold" x-text="'v' + version.tag + (index === 0 ? translations[lang].latestLabel : '')"></span>
-                        <span class="material-symbols-outlined transition-transform duration-500" :class="activeVersion === index ? 'rotate-180 text-m3-primary' : ''">expand_more</span>
-                    </button>
-                    <div x-show="activeVersion === index" x-collapse>
-                        <div class="px-8 pb-8 prose dark:prose-invert max-w-none text-m3-on-surface-variant text-lg leading-relaxed" 
-                             x-html="renderMarkdown(version[lang])">
-                        </div>
-                    </div>
-                </div>
-            </template>
-        </div>
-
-    </section>
-
     <!-- Screenshots Gallery -->
     <section id="gallery" class="bg-m3-surface-variant/10 dark:bg-m3-surface-variant-dark/5 py-24" x-data="{
         selectedIndex: null,
@@ -451,7 +430,6 @@
                         class="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white dark:bg-m3-surface-variant-dark shadow-xl rounded-full items-center justify-center text-gray-800 dark:text-m3-on-surface-dark opacity-0 group-hover:opacity-100 transition-all hover:scale-110 active:scale-95 border border-gray-200 dark:border-m3-surface-variant-dark">
                     <span class="material-symbols-outlined">chevron_right</span>
                 </button>
-
                 <!-- Scrollable Container -->
                 <div id="gallery-container" class="flex gap-6 overflow-x-auto pb-12 snap-x scrollbar-none scroll-smooth">
                     <template x-for="(name, index) in screenshots" :key="name">
@@ -512,6 +490,28 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- Changelog -->
+    <section id="changelog" class="max-w-4xl mx-auto px-6 py-24" x-data="{ activeVersion: 0 }">
+        <h2 class="text-4xl font-black mb-16 text-center" x-text="translations[lang].changelogTitle"></h2>
+        
+        <div class="space-y-4">
+            <template x-for="(version, index) in versions" :key="version.tag">
+                <div class="m3-card overflow-hidden">
+                    <button @click="activeVersion = activeVersion === index ? null : index" class="w-full p-8 flex justify-between items-center text-start m3-ripple">
+                        <span class="text-2xl font-bold" x-text="'v' + version.tag + (index === 0 ? translations[lang].latestLabel : '')"></span>
+                        <span class="material-symbols-outlined transition-transform duration-500" :class="activeVersion === index ? 'rotate-180 text-m3-primary' : ''">expand_more</span>
+                    </button>
+                    <div x-show="activeVersion === index" x-collapse>
+                        <div class="px-8 pb-8 prose dark:prose-invert max-w-none text-m3-on-surface-variant text-lg leading-relaxed" 
+                             x-html="renderMarkdown(version[lang])">
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+
     </section>
 
     <!-- Footer -->
