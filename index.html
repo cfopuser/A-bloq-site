@@ -22,19 +22,34 @@
     <script src="js/translations.js"></script>
     <script src="js/app.js"></script>
     
-    <!-- Alpine.js -->
+    <!-- Alpine.js & Marked.js (Markdown) -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body x-cloak>
+    <!-- Shutter Loader -->
+    <div id="shutter-loader" class="fixed inset-0 z-[100] bg-m3-surface dark:bg-m3-surface-dark flex items-center justify-center transition-transform duration-700 ease-out">
+        <div class="flex flex-col items-center gap-6">
+            <div class="w-16 h-16 bg-m3-primary/10 rounded-3xl p-3 animate-pulse">
+                <img src="Images/a-bloq-logo.png" alt="A Bloq Logo" class="w-full h-full object-contain grayscale opacity-60 dark:invert">
+            </div>
+            <div class="h-1 w-48 bg-m3-surface-variant dark:bg-m3-surface-variant-dark rounded-full overflow-hidden">
+                <div class="h-full bg-m3-primary animate-[loading_1.5s_infinite_ease-in-out]"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 glass px-4 py-3 flex items-center justify-between transition-all duration-500">
         <div class="flex items-center gap-4 group cursor-pointer" @click="window.scrollTo(0,0)">
-            <div class="p-2 bg-m3-primary/10 rounded-2xl group-hover:bg-m3-primary/20 transition-colors">
-                <img src="Images/a-bloq-logo.png" alt="A Bloq Logo" class="w-8 h-8 object-contain dark:invert">
+            <div class="p-2 transition-colors">
+                <img src="Images/a-bloq-logo.png" alt="A Bloq Logo" 
+                     class="w-8 h-8 object-contain grayscale opacity-50 contrast-125 dark:invert hover:opacity-100 transition-opacity">
             </div>
             <span class="font-black text-2xl tracking-tighter hidden sm:block bg-gradient-to-br from-m3-primary to-m3-secondary bg-clip-text text-transparent" x-text="translations[lang].title"></span>
         </div>
+
         
         <div class="hidden lg:flex gap-8 items-center">
             <a href="#features" class="text-sm font-bold opacity-70 hover:opacity-100 hover:text-m3-primary transition-all uppercase tracking-widest" x-text="translations[lang].navFeatures"></a>
@@ -67,23 +82,17 @@
     <!-- Hero Section -->
     <header class="max-w-6xl mx-auto px-6 py-24 lg:py-32 flex flex-col lg:flex-row items-center gap-16 overflow-visible">
         <div class="flex-1 text-center lg:text-start" x-init="$el.classList.add('visible')">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-m3-secondary-container text-m3-on-secondary-container font-black text-xs uppercase tracking-widest mb-8 animate-pulse">
-                <span class="relative flex h-2 w-2">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-m3-secondary opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-m3-secondary"></span>
-                </span>
-                Professional Grade Tool
-            </div>
-            <h1 class="text-6xl md:text-8xl font-black text-m3-on-surface mb-8 tracking-tighter leading-none" x-text="translations[lang].subtitle"></h1>
+            <h1 class="text-6xl md:text-8xl font-black text-m3-on-surface dark:text-m3-on-surface-dark mb-8 tracking-tighter leading-none" x-text="translations[lang].subtitle"></h1>
+
             <p class="text-xl md:text-2xl text-m3-on-surface-variant mb-12 leading-relaxed max-w-2xl mx-auto lg:mx-0" x-text="translations[lang].description"></p>
             
-            <div class="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start items-center">
-                <a href="https://cfopuser.github.io/a-bloq-installer/" target="_blank" class="w-full sm:w-auto bg-m3-primary text-m3-on-primary px-12 py-6 rounded-full text-2xl font-black flex items-center justify-center gap-4 active:scale-95 transition-all shadow-2xl hover:shadow-m3-primary/40 hover:-translate-y-1 m3-ripple">
-                    <span class="material-symbols-outlined text-4xl">bolt</span>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+                <a href="https://cfopuser.github.io/a-bloq-installer/" target="_blank" class="w-full sm:w-auto bg-m3-primary text-m3-on-primary px-10 py-5 rounded-full text-xl font-black flex items-center justify-center gap-4 active:scale-95 transition-all shadow-xl hover:shadow-m3-primary/30 hover:-translate-y-1 m3-ripple">
+                    <span class="material-symbols-outlined text-3xl">bolt</span>
                     <span x-text="translations[lang].ctaWebPrimary"></span>
                 </a>
-                <a href="https://github.com/sesese1234/SecureGuardMDM/releases" target="_blank" class="w-full sm:w-auto border-2 border-m3-primary text-m3-primary px-12 py-6 rounded-full text-2xl font-black flex items-center justify-center gap-4 active:scale-95 transition-all hover:bg-m3-primary/5 m3-ripple">
-                    <span class="material-symbols-outlined text-4xl">download</span>
+                <a href="https://github.com/sesese1234/SecureGuardMDM/releases" target="_blank" class="w-full sm:w-auto bg-m3-surface-variant dark:bg-m3-surface-variant-dark text-m3-on-surface-variant dark:text-m3-on-surface-dark px-10 py-5 rounded-full text-xl font-black flex items-center justify-center gap-4 active:scale-95 transition-all hover:bg-m3-primary/5 m3-ripple border-2 border-transparent hover:border-m3-primary/30">
+                    <span class="material-symbols-outlined text-3xl">download</span>
                     <span x-text="translations[lang].ctaDownload"></span>
                 </a>
             </div>
@@ -198,7 +207,7 @@
             <div class="relative">
                 <div class="sticky top-32">
                     <h2 class="text-5xl font-black mb-8 text-center lg:text-start" x-text="translations[lang].navInstall"></h2>
-                    <p class="text-xl text-m3-on-surface-variant mb-12 text-center lg:text-start leading-relaxed">בצעו את השלבים הבאים לפי הסדר כדי להעניק לכלי את ההרשאות הדרושות.</p>
+                    <p class="text-xl text-m3-on-surface-variant mb-12 text-center lg:text-start leading-relaxed">הנה מה שצריך לעשות כדי להעלות את הכלי ולהפעיל את ההרשאות. שימו לב לסדר, זה קריטי.</p>
                     <div class="hidden lg:block">
                         <div class="p-8 bg-m3-primary/5 rounded-[3rem] border-2 border-m3-primary/10 relative overflow-hidden group">
                            <div class="absolute top-0 left-0 w-2 h-full bg-m3-primary scale-y-0 group-hover:scale-y-100 transition-transform origin-top duration-500"></div>
@@ -303,7 +312,7 @@
                     <span class="material-symbols-outlined text-5xl text-m3-on-surface">desktop_windows</span>
                     <h3 class="text-3xl font-black" x-text="translations[lang].winInstaller"></h3>
                 </div>
-                <p class="text-m3-on-surface-variant text-lg">כלי ייעודי למחשב המאפשר הגדרה אוטומטית של ה-MDM בלחיצת כפתור אחת.</p>
+                <p class="text-m3-on-surface-variant text-lg">כלי ייעודי למחשב האישי שלכם. הוא דואג להגדיר את כל ענייני הניהול בלחיצת כפתור אחת פשוטה.</p>
                 <div class="mt-4 text-m3-on-surface-variant font-bold flex items-center gap-2 group-hover:text-m3-on-surface transition-colors">
                     <span x-text="translations[lang].forumMain"></span>
                     <span class="material-symbols-outlined text-sm">open_in_new</span>
@@ -317,7 +326,7 @@
                         <span class="material-symbols-outlined text-5xl text-m3-on-surface">language</span>
                         <h3 class="text-3xl font-black" x-text="translations[lang].webInstaller"></h3>
                     </div>
-                    <span class="bg-m3-primary text-m3-on-primary px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider">Top Choice</span>
+                    <span class="bg-m3-primary text-m3-on-primary px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider">הכי מהיר שיש</span>
                 </div>
                 <p class="text-m3-on-surface-variant text-lg" x-text="translations[lang].webInstallerInfo"></p>
                 <div class="mt-4 text-m3-on-surface-variant font-bold flex items-center gap-2 group-hover:text-m3-on-surface transition-colors">
@@ -335,12 +344,14 @@
         <div class="space-y-4">
             <template x-for="(version, index) in versions" :key="version.tag">
                 <div class="m3-card overflow-hidden">
-                    <button @click="activeVersion = activeVersion === index ? null : index" class="w-full p-8 flex justify-between items-center text-start">
-                        <span class="text-2xl font-bold" x-text="'v' + version.tag + (index === 0 ? ' (Latest)' : '')"></span>
-                        <span class="material-symbols-outlined transition-transform" :class="activeVersion === index ? 'rotate-180' : ''">expand_more</span>
+                    <button @click="activeVersion = activeVersion === index ? null : index" class="w-full p-8 flex justify-between items-center text-start m3-ripple">
+                        <span class="text-2xl font-bold" x-text="'v' + version.tag + (index === 0 ? (lang === 'he' ? ' (הכי חדש)' : ' (Latest)') : '')"></span>
+                        <span class="material-symbols-outlined transition-transform duration-500" :class="activeVersion === index ? 'rotate-180 text-m3-primary' : ''">expand_more</span>
                     </button>
                     <div x-show="activeVersion === index" x-collapse>
-                        <div class="px-8 pb-8 text-m3-on-surface-variant text-lg leading-relaxed" x-text="version[lang]"></div>
+                        <div class="px-8 pb-8 prose dark:prose-invert max-w-none text-m3-on-surface-variant text-lg leading-relaxed" 
+                             x-html="renderMarkdown(version[lang])">
+                        </div>
                     </div>
                 </div>
             </template>
@@ -356,16 +367,34 @@
     </section>
 
     <!-- Screenshots Gallery -->
-    <section id="gallery" class="bg-m3-surface-variant/10 dark:bg-m3-surface-variant-dark/5 py-24">
+    <section id="gallery" class="bg-m3-surface-variant/10 dark:bg-m3-surface-variant-dark/5 py-24" x-data="{ 
+        selectedScreenshot: null,
+        scroll(dir) {
+            const container = document.getElementById('gallery-container');
+            const scrollAmount = 300;
+            container.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
+        }
+    }">
         <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-black mb-16 text-center" x-text="lang === 'he' ? 'גלריית צילומי מסך' : 'App Screenshots'"></h2>
+            <h2 class="text-4xl font-black mb-16 text-center" x-text="lang === 'he' ? 'איך זה נראה באמת?' : 'A Peek Inside'"></h2>
             
             <div class="relative group">
+                <!-- Navigation Buttons (Desktop) -->
+                <button @click="scroll(lang === 'he' ? 1 : -1)" 
+                        class="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white dark:bg-m3-surface-dark shadow-xl rounded-full items-center justify-center text-m3-on-surface opacity-0 group-hover:opacity-100 transition-all hover:scale-110 active:scale-95">
+                    <span class="material-symbols-outlined" x-text="lang === 'he' ? 'chevron_right' : 'chevron_left'"></span>
+                </button>
+                <button @click="scroll(lang === 'he' ? -1 : 1)" 
+                        class="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white dark:bg-m3-surface-dark shadow-xl rounded-full items-center justify-center text-m3-on-surface opacity-0 group-hover:opacity-100 transition-all hover:scale-110 active:scale-95">
+                    <span class="material-symbols-outlined" x-text="lang === 'he' ? 'chevron_left' : 'chevron_right'"></span>
+                </button>
+
                 <!-- Scrollable Container -->
-                <div class="flex gap-6 overflow-x-auto pb-12 snap-x scrollbar-none scroll-smooth">
+                <div id="gallery-container" class="flex gap-6 overflow-x-auto pb-12 snap-x scrollbar-none scroll-smooth">
                     <template x-for="name in screenshots" :key="name">
                         <div class="snap-start shrink-0">
-                            <div class="m3-card overflow-hidden w-[280px] hover:scale-[1.02] transition-transform duration-500 shadow-lg hover:shadow-2xl">
+                            <div @click="selectedScreenshot = name" 
+                                 class="m3-card overflow-hidden w-[280px] hover:scale-[1.02] transition-transform duration-500 shadow-lg hover:shadow-2xl cursor-pointer">
                                 <img :src="getImageSrc(name)" class="w-full h-auto" loading="lazy">
                                 <div class="p-4 bg-m3-surface-variant/20 backdrop-blur-sm">
                                     <p class="text-xs font-bold text-center opacity-50 uppercase tracking-tighter" x-text="name.replace(/_/g, ' ')"></p>
@@ -378,6 +407,27 @@
                 <!-- Scroll Hints -->
                 <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-m3-background dark:from-m3-background-dark to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-m3-background dark:from-m3-background-dark to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+        </div>
+
+        <!-- Screenshots Lightbox -->
+        <div x-show="selectedScreenshot" 
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 scale-95"
+             x-transition:enter-end="opacity-100 scale-100"
+             x-transition:leave="transition ease-in duration-200"
+             x-transition:leave-start="opacity-100 scale-100"
+             x-transition:leave-end="opacity-0 scale-95"
+             class="fixed inset-0 z-[110] flex items-center justify-center p-6 bg-gray-900/95 backdrop-blur-md"
+             @click.self="selectedScreenshot = null"
+             @keydown.escape.window="selectedScreenshot = null">
+            
+            <div class="relative max-w-4xl max-h-[90vh] w-full flex flex-col items-center">
+                <button @click="selectedScreenshot = null" class="absolute -top-12 right-0 text-white hover:text-m3-primary transition-colors">
+                    <span class="material-symbols-outlined text-4xl">close</span>
+                </button>
+                <img :src="getImageSrc(selectedScreenshot)" class="max-w-full max-h-[80vh] rounded-3xl shadow-2xl border-4 border-white/10">
+                <p class="mt-6 text-white text-xl font-bold uppercase tracking-widest opacity-70" x-text="selectedScreenshot?.replace(/_/g, ' ')"></p>
             </div>
         </div>
     </section>
@@ -411,7 +461,7 @@
                 <p class="text-m3-error font-bold leading-relaxed" x-text="translations[lang].disclaimer"></p>
             </div>
             
-            <p class="text-m3-on-surface-variant/40 dark:text-m3-on-surface-dark/20 font-mono text-xs uppercase tracking-tighter">&copy; 2026 A Bloq Open Source Project. All rights reserved.</p>
+            <p class="text-m3-on-surface-variant/40 dark:text-m3-on-surface-dark/20 font-mono text-xs uppercase tracking-tighter">&copy; 2026 A Bloq Open Source Project. Crafted with passion.</p>
         </div>
     </footer>
 

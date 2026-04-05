@@ -1,0 +1,67 @@
+[
+    {
+        "tag": "0.4.6",
+        "he": "- מצב קיוסק תוקן, וכעת ניתן להשתמש בו באופן בטוח!\n- אי אפשר להסיר התקנה באנדרואיד גבוה.\n- תיקון הבהובים במסך הבית (כשבוחרים באייבלוק כמסך הבית).\n- העברת בעלות.\n- השעיית אפליקציות.\n- תמיכה באנגלית.",
+        "en": "- Kiosk mode fixed and safe to use!\n- Prevent uninstall on high Android versions.\n- Fix home screen flickering when selected as home app.\n- Ownership transfer.\n- App suspension.\n- English support."
+    },
+    {
+        "tag": "0.4.5",
+        "he": "- תיקון קריסה במכשירים בעלי אנדרואיד נמוך.\n- ביטול דיליי בהפעלת חסימות.\n- שיפורי VPN ופתרון בעיות במולטימדיה.\n- אייקון אפליקציה חדש.\n- כפתור שמירה מעדכן רק שינויים בסשן הנוכחי.\n- הודעה על הפעלה בהדלקת המכשיר.\n- מצב קיוסק (ניסיוני).\n- אפשרות למשימות עם בוט רסיבר והוספה מודולרית להגדרות.",
+        "en": "- Fix crashes on low Android devices.\n- Removed delay when applying blocks.\n- VPN improvements and multimedia fixes.\n- New app icon.\n- Save button now only applies changes from the current session.\n- Boot-up activation notification.\n- Kiosk mode (experimental).\n- Support for Boot Receiver tasks and modular settings additions."
+    },
+    {
+        "tag": "0.4.2",
+        "he": "- שם האפליקציה שונה ל-A Bloq!\n- עדכון אוטומטי וידני (עם אפשרות ביטול).\n- הפיכת כיוון המתגים (שמאל לימין).\n- אפשרות לתיבות סימון (Checkbox) במקום מתגים.\n- נעילת האפליקציה למניעת שינוי הגדרות.\n- הסתרת מייל ליצירת קשר ממסך המידע.\n- תיקון באג ה-NetGuard בעת שמירת חסימה.",
+        "en": "- Name changed to A Bloq!\n- Automatic and manual updates (can be disabled).\n- RTL/LTR switch direction toggle.\n- Checkbox UI option instead of switches.\n- App lock to prevent settings modification.\n- Hide contact email from the 'Info' screen.\n- Fixed NetGuard 'not protected' bug when saving blocks."
+    },
+    {
+        "tag": "0.4.1",
+        "he": "- קוד המקור זמין ב-GitHub.\n- מסך 'אודות' חדש.\n- נוספה אזהרה על הגנת FRP.",
+        "en": "- Source code now available on GitHub.\n- New 'About' screen.\n- Added warning regarding FRP protection."
+    },
+    {
+        "tag": "0.4.0",
+        "he": "- נוספה הגנת FRP עם תמיכה ב-USER ID מותאם אישית.\n- הסרת דרישת סיסמה לשמירת הגדרות וחסימת אפליקציות.\n- הסתרה משימוש אחרונים מטעמי אבטחה.\n- חלוקת חסימות לקטגוריות.",
+        "en": "- Added FRP protection with custom USER ID support.\n- Removed password requirement for saving settings and blocking apps.\n- Hidden from recent apps for security.\n- Block types categorized."
+    },
+    {
+        "tag": "0.3.9",
+        "he": "- תיקון קריסת Net Guard באנדרואיד גבוה.\n- מערכת למניעת קונפליקטים בין ה-VPN של Net Guard ל-ScecureGuard.",
+        "en": "- Fix Net Guard crash on high Android versions.\n- Conflict prevention system between Net Guard VPN and SecureGuard VPN."
+    },
+    {
+        "tag": "0.3.8",
+        "he": "- תמיכה מלאה ב-Net Guard כולל מניעת הסרה.\n- חסימת שינוי הגדרות VPN.\n- הגדרת נטגארד כ-VPN תמידי.",
+        "en": "- Full Net Guard support including uninstall prevention.\n- Block VPN settings modification.\n- Set Net Guard as Always-on VPN."
+    },
+    {
+        "tag": "0.3.7",
+        "he": "- פילטר 'אפליקציות מסך הבית' בחסימת אפליקציות.\n- חיפוש במסכי חסימת אפליקציות.\n- כפתור הצגת סיסמה.\n- ביטול הגנות אוטומטי בעת הסרת הגנה.\n- עיצוב מחדש של האפליקציה.\n- תיקון קריסה בעת שמירת הגדרות.",
+        "en": "- Home screen apps filter in app blocker.\n- Search functionality in app blocking screens.\n- Show password toggle button.\n- Automatic protection removal when disabling the master switch.\n- App redesign.\n- Fix crash when saving settings."
+    },
+    {
+        "tag": "0.3.6",
+        "he": "- חסימת שיחות.\n- חסימת יצירת קוד למכשיר.\n- תיקון באג פתיחת אפליקציות חסומות בעת הוספת חדשה.",
+        "en": "- Block phone calls.\n- Block passcode/PIN creation.\n- Fix bug where blocked apps opened when adding a new one."
+    },
+    {
+        "tag": "0.3.5",
+        "he": "- חסימת: הסרת משתמשים, שינוי חשבונות, הסרת פרופיל עבודה, מצב טיסה, הגדרות סלולר, איפוס רשת, NFC, נדידה, DNS פרטי, עוצמת שמע, טפט, שורת סטטוס, מילוי אוטומטי, התראות במסך כבוי, ניהול אפליקציות, הסרת אפליקציות, מדיה חיצונית, מסך נעילה, מיקום, אישורי אבטחה, הדפסה, לכידת מסך.",
+        "en": "- Blocked: User removal, account changes, work profile removal, airplane mode, cellular settings, network reset, NFC, roaming, Private DNS, volume control, wallpaper, status bar, autofill, lock screen notifications, app management, app uninstall, external media, lock screen, location, security certificates, printing, and screen capture."
+    },
+    {
+        "tag": "0.3.4",
+        "he": "- תיקון סופי לבאג שבו אפליקציות חסומות לא מופיעות ברשימה.",
+        "en": "- Final fix for the bug where blocked apps did not appear in the blocked list."
+    },
+    {
+        "tag": "0.3.3",
+        "he": "- חסימת התקנת אפליקציות מכל מקור.\n- חסימת SMS.",
+        "en": "- Block app installation from all sources.\n- Block SMS."
+    },
+    {
+        "tag": "0.3.2",
+        "he": "- תיקון קריסה בשמירה באנדרואיד נמוך.\n- אפשרות שחזור אפליקציות שנחסמו לפי שם חבילה (Package Name).",
+        "en": "- Fix crash during save on low Android versions.\n- Restore blocked apps using package name."
+    }
+]

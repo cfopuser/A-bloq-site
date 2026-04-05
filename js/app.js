@@ -3,10 +3,14 @@ document.addEventListener('alpine:init', () => {
         lang: 'he',
         darkMode: localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches),
         translations: window.translations,
-        versions: window.versions,
+        versions: [],
         toggleTheme() {
             this.darkMode = !this.darkMode;
             localStorage.setItem('theme', this.darkMode ? 'dark' : 'light');
+        },
+        renderMarkdown(content) {
+            if (!content) return '';
+            return marked.parse(content);
         },
         getImageSrc(name) {
             const folder = this.lang === 'he' ? 'Hebrew-images' : 'English-images';
@@ -20,9 +24,17 @@ document.addEventListener('alpine:init', () => {
             'settings_ui_2', 'settings_ui_advanced', 'settings_advanced_actions_1', 
             'setup_device_owner', 'setup_welcome'
         ],
-        init() {
+        async init() {
             // Detect browser language
             this.lang = (navigator.language.startsWith('he')) ? 'he' : 'en';
+
+            // Fetch dynamic changelog
+            try {
+                const response = await fetch('js/changelog.json');
+                this.versions = await response.json();
+            } catch (e) {
+                console.error('Failed to load changelog:', e);
+            }
 
             // Scroll Reveal Observer
             const observer = new IntersectionObserver((entries) => {
@@ -32,6 +44,11 @@ document.addEventListener('alpine:init', () => {
                     }
                 });
             }, { threshold: 0.1 });
+
+            // Hide loader
+            setTimeout(() => {
+                document.getElementById('shutter-loader').classList.add('loader-hidden');
+            }, 800);
 
             document.querySelectorAll('section, header').forEach(el => observer.observe(el));
         }
