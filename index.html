@@ -213,7 +213,7 @@
                             <p class="text-lg font-bold text-m3-on-surface dark:text-m3-on-surface-dark leading-relaxed" x-text="translations[lang].manualInstallNotice"></p>
                         </div>
                     </div>
-                    <p class="text-xl text-m3-on-surface-variant mb-12 text-center lg:text-start leading-relaxed" x-text="lang === 'he' ? 'להלן השלבים הנדרשים להגדרת המערכת באופן ידני. יש להיצמד לסדר הפעולות המדויק לצורך פעולה תקינה.' : 'Follow these steps to manually configure the system. Precise execution is required for proper functionality.'"></p>
+                    <p class="text-xl text-m3-on-surface-variant mb-12 text-center lg:text-start leading-relaxed" x-text="translations[lang].manualSetupIntro"></p>
                     <div class="hidden lg:block">
                         <div class="p-8 bg-m3-primary/5 rounded-[3rem] border-2 border-m3-primary/10 relative overflow-hidden group">
                            <div class="absolute top-0 left-0 w-2 h-full bg-m3-primary scale-y-0 group-hover:scale-y-100 transition-transform origin-top duration-500"></div>
@@ -321,10 +321,10 @@
                 </div>
                 <div>
                     <h3 class="text-2xl font-black mb-2" x-text="translations[lang].forumMain"></h3>
-                    <p class="text-m3-on-surface-variant leading-relaxed" x-text="lang === 'he' ? 'הצטרפו לדיון המרכזי, שאלו שאלות וקבלו עזרה מהפורום.' : 'Join the main discussion, ask questions, and get help from the community.'"></p>
+                    <p class="text-m3-on-surface-variant leading-relaxed" x-text="translations[lang].forumMainDesc"></p>
                 </div>
                 <div class="mt-auto flex items-center gap-2 text-m3-primary font-bold">
-                    <span x-text="lang === 'he' ? 'לנושא המרכזי' : 'Go to topic'"></span>
+                    <span x-text="translations[lang].forumGo"></span>
                     <span class="material-symbols-outlined text-sm">open_in_new</span>
                 </div>
             </a>
@@ -336,10 +336,10 @@
                 </div>
                 <div>
                     <h3 class="text-2xl font-black mb-2" x-text="translations[lang].forumUpdates"></h3>
-                    <p class="text-m3-on-surface-variant leading-relaxed" x-text="lang === 'he' ? 'עקבו אחר העדכונים האחרונים ותיעוד הגרסאות של הפרויקט.' : 'Follow the latest updates and version history of the project.'"></p>
+                    <p class="text-m3-on-surface-variant leading-relaxed" x-text="translations[lang].forumUpdatesDesc"></p>
                 </div>
                 <div class="mt-auto flex items-center gap-2 text-m3-secondary font-bold">
-                    <span x-text="lang === 'he' ? 'לכל העדכונים' : 'View updates'"></span>
+                    <span x-text="translations[lang].forumUpdatesGo"></span>
                     <span class="material-symbols-outlined text-sm">open_in_new</span>
                 </div>
             </a>
@@ -351,10 +351,10 @@
                 </div>
                 <div>
                     <h3 class="text-2xl font-black mb-2" x-text="translations[lang].forumWeb"></h3>
-                    <p class="text-m3-on-surface-variant leading-relaxed" x-text="lang === 'he' ? 'נושא מפורט על המתקין המקוון ופתרון בעיות.' : 'Detailed guide and troubleshooting for the Web Installer.'"></p>
+                    <p class="text-m3-on-surface-variant leading-relaxed" x-text="translations[lang].forumWebDesc"></p>
                 </div>
                 <div class="mt-auto flex items-center gap-2 text-m3-tertiary font-bold">
-                    <span x-text="lang === 'he' ? 'לנושא המלא' : 'Full topic'"></span>
+                    <span x-text="translations[lang].forumWebGo"></span>
                     <span class="material-symbols-outlined text-sm">open_in_new</span>
                 </div>
             </a>
@@ -388,7 +388,7 @@
             <template x-for="(version, index) in versions" :key="version.tag">
                 <div class="m3-card overflow-hidden">
                     <button @click="activeVersion = activeVersion === index ? null : index" class="w-full p-8 flex justify-between items-center text-start m3-ripple">
-                        <span class="text-2xl font-bold" x-text="'v' + version.tag + (index === 0 ? (lang === 'he' ? ' (הכי חדש)' : ' (Latest)') : '')"></span>
+                        <span class="text-2xl font-bold" x-text="'v' + version.tag + (index === 0 ? translations[lang].latestLabel : '')"></span>
                         <span class="material-symbols-outlined transition-transform duration-500" :class="activeVersion === index ? 'rotate-180 text-m3-primary' : ''">expand_more</span>
                     </button>
                     <div x-show="activeVersion === index" x-collapse>
@@ -412,7 +412,7 @@
         }
     }">
         <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-black mb-16 text-center" x-text="lang === 'he' ? 'איך זה נראה באמת?' : 'A Peek Inside'"></h2>
+            <h2 class="text-4xl font-black mb-16 text-center" x-text="translations[lang].galleryTitle"></h2>
             
             <div class="relative group">
                 <!-- Navigation Buttons (Desktop) -->
