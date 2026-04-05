@@ -103,7 +103,7 @@ const translations = {
         featModularDesc: 'The system is built from independent components, allowing you to tailor the level of protection and blocking exactly to your personal needs.',
         
         // FAQ Section
-        faqTitle: 'Frequently Asked Questions & Technical Info',
+        faqTitle: 'Faq & Technical Info',
         faq1Q: 'Is the A Bloq system considered a content filtering service?',
         faq1A: 'A Bloq is not an internet filtering service in the conventional sense (such as NetFree). It is a system management tool (MDM) that allows you to define physical and software blocks on the device itself, thereby creating a protected and safe environment against breakthroughs or addiction to uncontrolled use.',
         faq2Q: 'The browser displays a "Not Supported" message during setup—what should I do?',

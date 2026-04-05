@@ -7,11 +7,11 @@
 .dark ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); }
 
 /* M3 Elevation & Surfaces */
-.glass { background: rgba(255, 247, 255, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(231, 224, 235, 0.5); }
+.glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
 .dark .glass { background: rgba(28, 27, 31, 0.7); border-bottom: 1px solid rgba(73, 69, 79, 0.5); }
 
 .m3-card { 
-    background: #E7E0EB; 
+    background: #F5F5F5; 
     border-radius: 28px; 
     transition: all 0.3s cubic-bezier(0.2, 0, 0, 1); 
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
@@ -19,11 +19,10 @@
 .dark .m3-card { background: #2B2930; }
 
 .m3-card:hover { 
-    transform: translateY(-2px); 
-    background: #EADDFF; 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+    transform: translateY(-4px); 
+    box-shadow: 0 12px 32px rgba(179, 38, 30, 0.15); 
 }
-.dark .m3-card:hover { background: #36343B; }
+.dark .m3-card:hover { box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4); }
 
 /* M3 State Layers (Android Ripple Effect Emulation) */
 .m3-ripple { position: relative; overflow: hidden; }
@@ -41,22 +40,22 @@
 /* Markdown & Prose Styling */
 .prose b, .prose strong {
     font-weight: 900;
-    color: #6750A4; /* M3 Primary */
+    color: #B3261E; /* M3 Primary Red */
 }
 .dark .prose b, .dark .prose strong {
-    color: #D0BCFF; /* M3 Primary Dark */
+    color: #F28B82; /* M3 Primary Red Dark */
 }
 .prose code {
-    background: rgba(103, 80, 164, 0.1);
+    background: rgba(179, 38, 30, 0.1);
     padding: 0.2rem 0.4rem;
     border-radius: 0.5rem;
     font-family: monospace;
     font-size: 0.875em;
-    color: #6750A4;
+    color: #B3261E;
 }
 .dark .prose code {
-    background: rgba(208, 188, 255, 0.2);
-    color: #D0BCFF;
+    background: rgba(242, 139, 130, 0.2);
+    color: #F28B82;
 }
 .prose ul {
     list-style-type: disc !important;
@@ -74,8 +73,8 @@
 
 /* Typography */
 body { 
-    background-color: #FEF7FF; 
-    color: #1D1B20; 
+    background-color: #FFFFFF; 
+    color: #1B1B1B; 
     font-family: 'Inter', 'Heebo', sans-serif; 
     transition: background-color 0.4s, color 0.4s;
     letter-spacing: -0.01em;
@@ -99,7 +98,7 @@ section.visible { opacity: 1; transform: translateY(0); }
     background: #79747E; border-radius: 50%; top: 50%; left: 4px; 
     transform: translateY(-50%); transition: 0.2s cubic-bezier(0.2, 0, 0, 1); 
 }
-.toggle-checked { background: #6750A4; border-color: #6750A4; }
+.toggle-checked { background: #B3261E; border-color: #B3261E; }
 .toggle-checked::after { background: white; width: 24px; height: 24px; left: 20px; }
 [dir="rtl"] .toggle-checked::after { left: auto; right: 20px; }
 [dir="rtl"] .toggle-switch::after { left: auto; right: 4px; }

@@ -13,6 +13,7 @@ document.addEventListener('alpine:init', () => {
             return marked.parse(content);
         },
         getImageSrc(name) {
+            if (!name) return '';
             const folder = this.lang === 'he' ? 'Hebrew-images' : 'English-images';
             const mode = this.darkMode ? 'Darkmode' : 'Lightmode';
             return `Images/${folder}/${mode}/${name}.png`;

@@ -32,7 +32,7 @@
     <div id="shutter-loader" class="fixed inset-0 z-[100] bg-m3-surface dark:bg-m3-surface-dark flex items-center justify-center transition-transform duration-700 ease-out">
         <div class="flex flex-col items-center gap-6">
             <div class="w-16 h-16 bg-m3-primary/10 rounded-3xl p-3 animate-pulse">
-                <img src="Images/a-bloq-logo.png" alt="A Bloq Lock Logo" class="w-full h-full object-contain grayscale opacity-60 dark:invert">
+                <img :src="darkMode ? 'Images/a-bloq-logo-dark.png' : 'Images/a-bloq-logo.png'" alt="A Bloq Lock Logo" class="w-full h-full object-contain">
             </div>
             <div class="h-1 w-48 bg-m3-surface-variant dark:bg-m3-surface-variant-dark rounded-full overflow-hidden">
                 <div class="h-full bg-m3-primary animate-[loading_1.5s_infinite_ease-in-out]"></div>
@@ -41,40 +41,41 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 glass px-4 py-3 flex items-center justify-between transition-all duration-500">
-        <div class="flex items-center gap-4 group cursor-pointer" @click="window.scrollTo(0,0)">
+    <nav class="sticky top-0 z-50 glass px-4 h-[72px] flex items-center justify-between transition-all duration-500 overflow-hidden">
+        <div class="flex items-center gap-4 group cursor-pointer shrink-0" @click="window.scrollTo(0,0)">
             <div class="p-2 transition-colors">
-                <img src="Images/a-bloq-logo.png" alt="A Bloq Lock Logo" 
-                     class="w-8 h-8 object-contain grayscale opacity-50 contrast-125 dark:invert hover:opacity-100 transition-opacity">
+                <img alt="A Bloq Lock Logo"
+                     :src="darkMode ? 'Images/a-bloq-logo-dark.png' : 'Images/a-bloq-logo.png'"
+                     class="w-8 h-8 object-contain transition-opacity hover:opacity-80">
             </div>
-            <span class="font-black text-2xl tracking-tighter hidden sm:block bg-gradient-to-br from-m3-primary to-m3-secondary bg-clip-text text-transparent" x-text="translations[lang].title"></span>
+            <span class="font-black text-2xl tracking-tighter hidden sm:block text-m3-primary" x-text="translations[lang].title"></span>
         </div>
 
         
-        <div class="hidden lg:flex gap-8 items-center">
-            <a href="#features" class="text-sm font-bold opacity-70 hover:opacity-100 hover:text-m3-primary transition-all uppercase tracking-widest" x-text="translations[lang].navFeatures"></a>
-            <a href="#install" class="text-sm font-bold opacity-70 hover:opacity-100 hover:text-m3-primary transition-all uppercase tracking-widest" x-text="translations[lang].navInstall"></a>
-            <a href="#faq" class="text-sm font-bold opacity-70 hover:opacity-100 hover:text-m3-primary transition-all uppercase tracking-widest" x-text="translations[lang].faqTitle"></a>
-            <a href="https://github.com/sesese1234/SecureGuardMDM" target="_blank" class="text-sm font-bold opacity-70 hover:opacity-100 hover:text-m3-primary transition-all uppercase tracking-widest flex items-center gap-1">
+        <div class="hidden lg:flex gap-8 items-center shrink-0">
+            <a href="#features" class="text-sm font-bold opacity-70 hover:opacity-100 hover:text-m3-primary transition-all uppercase tracking-widest whitespace-nowrap" x-text="translations[lang].navFeatures"></a>
+            <a href="#install" class="text-sm font-bold opacity-70 hover:opacity-100 hover:text-m3-primary transition-all uppercase tracking-widest whitespace-nowrap" x-text="translations[lang].navInstall"></a>
+            <a href="#faq" class="text-sm font-bold opacity-70 hover:opacity-100 hover:text-m3-primary transition-all uppercase tracking-widest whitespace-nowrap" x-text="translations[lang].faqTitle"></a>
+            <a href="https://github.com/sesese1234/SecureGuardMDM" target="_blank" class="text-sm font-bold opacity-70 hover:opacity-100 hover:text-m3-primary transition-all uppercase tracking-widest flex items-center gap-1 whitespace-nowrap">
                 <span x-text="translations[lang].navSource"></span>
                 <span class="material-symbols-outlined text-xs">north_east</span>
             </a>
         </div>
 
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2 shrink-0">
             <!-- Theme Toggle -->
-            <button @click="toggleTheme()" class="p-3 rounded-full hover:bg-m3-surface-variant dark:hover:bg-m3-surface-variant-dark transition-all active:scale-90 m3-ripple">
+            <button @click="toggleTheme()" class="p-3 rounded-full hover:bg-m3-surface-variant dark:hover:bg-m3-surface-variant-dark transition-all active:scale-90 m3-ripple shrink-0">
                 <span class="material-symbols-outlined text-2xl" x-text="darkMode ? 'light_mode' : 'dark_mode'"></span>
             </button>
             <!-- Language Toggle -->
-            <button @click="lang = lang === 'he' ? 'en' : 'he'" class="flex items-center gap-2 px-4 py-2 rounded-full border border-m3-on-surface-variant/20 hover:bg-m3-surface-variant transition-all active:scale-95">
+            <button @click="lang = lang === 'he' ? 'en' : 'he'" class="flex items-center gap-2 px-4 py-2 rounded-full border border-m3-on-surface-variant/20 hover:bg-m3-surface-variant dark:hover:bg-m3-surface-variant-dark transition-all active:scale-95 m3-ripple shrink-0 whitespace-nowrap">
                 <span class="material-symbols-outlined text-xl">language</span>
                 <span class="font-bold text-xs uppercase tracking-widest" x-text="lang === 'he' ? 'EN' : 'עברית'"></span>
             </button>
             <!-- Primary CTA -->
-            <a href="https://cfopuser.github.io/a-bloq-installer/" target="_blank" class="bg-m3-primary text-m3-on-primary px-6 py-2.5 rounded-full font-black text-sm flex items-center gap-2 active:scale-95 transition-all shadow-lg hover:shadow-m3-primary/30 m3-ripple uppercase tracking-wider">
+            <a href="https://cfopuser.github.io/a-bloq-installer/" target="_blank" class="bg-m3-primary text-m3-on-primary px-6 py-2.5 rounded-full font-black text-sm flex items-center gap-2 active:scale-95 transition-all shadow-lg hover:shadow-m3-primary/30 m3-ripple uppercase tracking-wider shrink-0 whitespace-nowrap">
                 <span class="material-symbols-outlined text-xl">bolt</span>
-                <span class="hidden sm:inline" x-text="translations[lang].ctaWebPrimary"></span>
+                <span class="hidden lg:inline" x-text="translations[lang].ctaWebPrimary"></span>
             </a>
         </div>
     </nav>
@@ -98,7 +99,7 @@
             </div>
         </div>
         <div class="w-full lg:w-[450px] relative mt-12 lg:mt-0" x-init="$el.classList.add('visible')">
-            <div class="absolute -inset-10 bg-gradient-to-tr from-m3-primary/30 to-m3-secondary/20 blur-[100px] rounded-full animate-pulse"></div>
+            <div class="absolute -inset-10 bg-gradient-to-tr from-m3-primary/20 to-transparent blur-[100px] rounded-full animate-pulse"></div>
             <div class="relative z-10 p-4 bg-m3-surface-variant/20 backdrop-blur-xl rounded-[4rem] border border-white/20 shadow-2xl">
                 <img :src="getImageSrc('setup_welcome')" alt="App Status Screenshot" class="w-full rounded-[3.5rem] shadow-2xl border-4 border-gray-900/10 mx-auto transform hover:scale-[1.02] transition-transform duration-700">
             </div>
@@ -114,9 +115,9 @@
 
     <!-- Promo / Advertising Section -->
     <section class="max-w-6xl mx-auto px-6 py-24 text-center overflow-hidden" x-init="$el.classList.add('visible')">
-        <div class="bg-gradient-to-br from-m3-primary/10 to-m3-secondary/5 rounded-[4rem] p-12 lg:p-24 border border-m3-primary/10 relative">
+        <div class="bg-gradient-to-br from-m3-primary/5 to-m3-surface-variant dark:to-m3-surface-variant-dark rounded-[4rem] p-12 lg:p-24 border border-m3-primary/10 relative">
             <div class="absolute top-0 right-0 w-64 h-64 bg-m3-primary/10 blur-[80px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
-            <div class="absolute bottom-0 left-0 w-64 h-64 bg-m3-secondary/10 blur-[80px] rounded-full -translate-x-1/2 translate-y-1/2"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 bg-m3-primary/5 blur-[80px] rounded-full -translate-x-1/2 translate-y-1/2"></div>
             
             <h2 class="text-4xl md:text-6xl font-black mb-6 tracking-tight" x-text="translations[lang].promoTitle"></h2>
             <p class="text-2xl md:text-3xl font-bold text-m3-primary mb-12" x-text="translations[lang].promoSubtitle"></p>
@@ -225,8 +226,7 @@
             
             <div class="space-y-4">
                 <!-- Step 1 -->
-                <div class="m3-card p-8 md:p-12 relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 p-8 text-8xl font-black opacity-[0.03] group-hover:opacity-[0.08] transition-opacity pointer-events-none">1</div>
+                <div class="m3-card p-8 md:p-12 relative overflow-hidden group m3-ripple cursor-pointer">
                     <div class="flex gap-8">
                         <div class="w-14 h-14 bg-m3-primary text-white rounded-2xl flex items-center justify-center font-black text-2xl shrink-0 shadow-lg shadow-m3-primary/20">1</div>
                         <div>
@@ -237,8 +237,7 @@
                 </div>
 
                 <!-- Step 2 -->
-                <div class="m3-card p-8 md:p-12 relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 p-8 text-8xl font-black opacity-[0.03] group-hover:opacity-[0.08] transition-opacity pointer-events-none">2</div>
+                <div class="m3-card p-8 md:p-12 relative overflow-hidden group m3-ripple cursor-pointer">
                     <div class="flex gap-8">
                         <div class="w-14 h-14 bg-m3-secondary text-white rounded-2xl flex items-center justify-center font-black text-2xl shrink-0">2</div>
                         <div>
@@ -249,34 +248,33 @@
                 </div>
 
                 <!-- Step 3 -->
-                <div class="m3-card p-8 md:p-12 relative overflow-hidden group border-2 border-m3-primary/20 ring-4 ring-m3-primary/5">
-                    <div class="absolute top-0 right-0 p-8 text-8xl font-black opacity-[0.03] group-hover:opacity-[0.08] transition-opacity pointer-events-none">3</div>
+                <div class="m3-card p-8 md:p-12 relative group border-2 border-m3-primary/20 ring-4 ring-m3-primary/5">
                     <div class="flex gap-8">
                         <div class="w-14 h-14 bg-m3-primary text-white rounded-2xl flex items-center justify-center font-black text-2xl shrink-0">3</div>
                         <div class="flex-1 min-w-0">
                             <h3 class="text-3xl font-black mb-4" x-text="translations[lang].step3Title"></h3>
                             <p class="text-xl text-m3-on-surface-variant mb-8 leading-relaxed" x-text="translations[lang].step3Desc"></p>
                             
-                            <div class="relative rounded-[2rem] overflow-hidden shadow-2xl" x-data="{ copied: false, code: 'adb shell dpm set-device-owner com.secureguard.mdm/.SecureGuardDeviceAdminReceiver' }">
+                            <div class="rounded-[2rem] overflow-hidden shadow-2xl border border-gray-700/30" x-data="{ copied: false, code: 'adb shell dpm set-device-owner com.secureguard.mdm/.SecureGuardDeviceAdminReceiver' }">
                                 <div class="bg-gray-800 px-6 py-4 flex items-center justify-between border-b border-gray-700">
                                     <span class="text-gray-400 text-xs font-mono uppercase tracking-widest">ADB Terminal</span>
-                                    <button @click="navigator.clipboard.writeText(code); copied = true; setTimeout(() => copied = false, 2000)" 
-                                            class="bg-m3-primary text-m3-on-primary px-5 py-2 rounded-xl flex items-center gap-2 transition-all active:scale-95 text-xs font-black m3-ripple">
+                                    <button @click.stop="navigator.clipboard.writeText(code); copied = true; setTimeout(() => copied = false, 2000)" 
+                                            class="bg-m3-primary text-m3-on-primary px-5 py-2 rounded-xl flex items-center gap-2 transition-all active:scale-95 text-xs font-black hover:opacity-90">
                                         <span class="material-symbols-outlined text-sm" x-text="copied ? 'check' : 'content_copy'"></span>
                                         <span x-text="copied ? translations[lang].copied : translations[lang].copyBtn"></span>
                                     </button>
                                 </div>
-                                <pre dir="ltr" class="bg-gray-900 text-m3-primary-dark p-8 overflow-x-auto font-mono text-sm scrollbar-thin"><code x-text="code"></code></pre>
+                                <pre dir="ltr" class="bg-gray-900 text-green-400 p-8 overflow-x-auto font-mono text-sm leading-relaxed whitespace-pre"><code x-text="code"></code></pre>
                             </div>
                         </div>
                     </div>
                 </div>
 
+
                 <!-- Step 4 -->
-                <div class="m3-card p-8 md:p-12 relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 p-8 text-8xl font-black opacity-[0.03] group-hover:opacity-[0.08] transition-opacity pointer-events-none">4</div>
+                <div class="m3-card p-8 md:p-12 relative overflow-hidden group m3-ripple cursor-pointer">
                     <div class="flex gap-8">
-                        <div class="w-14 h-14 bg-m3-tertiary text-white rounded-2xl flex items-center justify-center font-black text-2xl shrink-0">4</div>
+                        <div class="w-14 h-14 bg-m3-secondary text-white rounded-2xl flex items-center justify-center font-black text-2xl shrink-0">4</div>
                         <div>
                             <h3 class="text-3xl font-black mb-4" x-text="translations[lang].step4Title"></h3>
                             <p class="text-xl text-m3-on-surface-variant leading-relaxed" x-text="translations[lang].step4Desc"></p>
@@ -293,7 +291,7 @@
         <div class="space-y-6">
             <template x-for="i in [1,2,3,4]" :key="i">
                 <div class="m3-card overflow-hidden transition-all duration-500" :class="activeFaq === i ? 'ring-2 ring-m3-primary/30' : ''">
-                    <button @click="activeFaq = activeFaq === i ? null : i" class="w-full text-start p-8 flex justify-between items-center group">
+                    <button @click="activeFaq = activeFaq === i ? null : i" class="w-full text-start p-8 flex justify-between items-center group m3-ripple">
                         <span class="text-2xl font-black group-hover:text-m3-primary transition-colors" x-text="translations[lang]['faq'+i+'Q']"></span>
                         <span class="material-symbols-outlined text-3xl transition-transform duration-500 bg-m3-primary/10 p-2 rounded-full" :class="activeFaq === i ? 'rotate-180 bg-m3-primary text-white' : ''">expand_more</span>
                     </button>
@@ -315,7 +313,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Discussion Thread -->
-            <a href="https://mitmachim.top/topic/84759/" target="_blank" class="m3-card p-8 flex flex-col gap-6 group hover:-translate-y-2 transition-all">
+            <a href="https://mitmachim.top/topic/84759/" target="_blank" class="m3-card p-8 flex flex-col gap-6 group hover:-translate-y-2 transition-all m3-ripple">
                 <div class="w-14 h-14 bg-m3-primary/10 rounded-2xl flex items-center justify-center text-m3-primary shrink-0">
                     <span class="material-symbols-outlined text-3xl">forum</span>
                 </div>
@@ -330,7 +328,7 @@
             </a>
 
             <!-- Version Updates -->
-            <a href="https://mitmachim.top/topic/86455/" target="_blank" class="m3-card p-8 flex flex-col gap-6 group hover:-translate-y-2 transition-all">
+            <a href="https://mitmachim.top/topic/86455/" target="_blank" class="m3-card p-8 flex flex-col gap-6 group hover:-translate-y-2 transition-all m3-ripple">
                 <div class="w-14 h-14 bg-m3-secondary/10 rounded-2xl flex items-center justify-center text-m3-secondary shrink-0">
                     <span class="material-symbols-outlined text-3xl">history</span>
                 </div>
@@ -345,7 +343,7 @@
             </a>
 
             <!-- Web Tool Support -->
-            <a href="https://mitmachim.top/topic/93248/" target="_blank" class="m3-card p-8 flex flex-col gap-6 group hover:-translate-y-2 transition-all">
+            <a href="https://mitmachim.top/topic/93248/" target="_blank" class="m3-card p-8 flex flex-col gap-6 group hover:-translate-y-2 transition-all m3-ripple">
                 <div class="w-14 h-14 bg-m3-tertiary/10 rounded-2xl flex items-center justify-center text-m3-tertiary shrink-0">
                     <span class="material-symbols-outlined text-3xl">description</span>
                 </div>
@@ -361,18 +359,18 @@
         </div>
 
         <!-- Highlighted Web Installer Callout -->
-        <div class="mt-12 bg-gradient-to-br from-m3-primary to-m3-secondary rounded-[3rem] p-1 gap-1">
-            <a href="https://cfopuser.github.io/a-bloq-installer/" target="_blank" class="bg-m3-surface dark:bg-m3-surface-dark rounded-[2.8rem] p-10 flex flex-col md:flex-row items-center justify-between gap-8 group hover:bg-transparent transition-colors duration-500">
+        <div class="mt-12 bg-gradient-to-br from-m3-primary to-m3-secondary-container dark:to-m3-primary-container-dark rounded-[3rem] p-1 gap-1">
+            <a href="https://cfopuser.github.io/a-bloq-installer/" target="_blank" class="bg-m3-surface dark:bg-m3-surface-dark rounded-[2.8rem] p-10 flex flex-col md:flex-row items-center justify-between gap-8 group hover:shadow-2xl transition-shadow duration-300 m3-ripple">
                 <div class="flex items-center gap-6">
                     <div class="w-20 h-20 bg-m3-primary text-m3-on-primary rounded-3xl flex items-center justify-center shadow-xl">
                         <span class="material-symbols-outlined text-5xl">bolt</span>
                     </div>
                     <div>
-                        <h3 class="text-3xl font-black mb-2 group-hover:text-white transition-colors" x-text="translations[lang].webInstaller"></h3>
-                        <p class="text-xl text-m3-on-surface-variant group-hover:text-white/80 transition-colors" x-text="translations[lang].webInstallerInfo"></p>
+                        <h3 class="text-3xl font-black mb-2" x-text="translations[lang].webInstaller"></h3>
+                        <p class="text-xl text-m3-on-surface-variant" x-text="translations[lang].webInstallerInfo"></p>
                     </div>
                 </div>
-                <div class="bg-m3-primary text-m3-on-primary px-8 py-4 rounded-full font-black flex items-center gap-3 shadow-lg group-hover:bg-white group-hover:text-m3-primary transition-all">
+                <div class="bg-m3-primary text-m3-on-primary px-8 py-4 rounded-full font-black flex items-center gap-3 shadow-lg group-hover:scale-105 transition-transform">
                     <span x-text="translations[lang].ctaWebPrimary"></span>
                     <span class="material-symbols-outlined">arrow_forward</span>
                 </div>
@@ -462,7 +460,7 @@
                 <button @click="selectedScreenshot = null" class="absolute -top-12 right-0 text-white hover:text-m3-primary transition-colors">
                     <span class="material-symbols-outlined text-4xl">close</span>
                 </button>
-                <img :src="getImageSrc(selectedScreenshot)" class="max-w-full max-h-[80vh] rounded-3xl shadow-2xl border-4 border-white/10">
+                <img :src="selectedScreenshot ? getImageSrc(selectedScreenshot) : ''" class="max-w-full max-h-[80vh] rounded-3xl shadow-2xl border-4 border-white/10">
                 <p class="mt-6 text-white text-xl font-bold uppercase tracking-widest opacity-70" x-text="selectedScreenshot?.replace(/_/g, ' ')"></p>
             </div>
         </div>
