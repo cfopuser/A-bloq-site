@@ -92,7 +92,7 @@
                     <span x-text="translations[lang].ctaWebPrimary"></span>
                 </a>
                 <a href="https://github.com/sesese1234/SecureGuardMDM/releases" target="_blank" class="w-full sm:w-auto bg-m3-surface-variant dark:bg-m3-surface-variant-dark text-m3-on-surface-variant dark:text-m3-on-surface-dark px-10 py-5 rounded-full text-xl font-black flex items-center justify-center gap-4 active:scale-95 transition-all hover:bg-m3-primary/5 m3-ripple border-2 border-transparent hover:border-m3-primary/30">
-                    <span class="material-symbols-outlined text-3xl">download</span>
+                    <span class="material-symbols-outlined text-3xl">android</span>
                     <span x-text="translations[lang].ctaDownload"></span>
                 </a>
             </div>
@@ -207,7 +207,13 @@
             <div class="relative">
                 <div class="sticky top-32">
                     <h2 class="text-5xl font-black mb-8 text-center lg:text-start" x-text="translations[lang].navInstall"></h2>
-                    <p class="text-xl text-m3-on-surface-variant mb-12 text-center lg:text-start leading-relaxed">להלן השלבים הנדרשים להגדרת המערכת והענקת הרשאות הניהול. נדגיש כי יש להיצמד לסדר הפעולות המדויק לצורך פעולה תקינה.</p>
+                    <div class="mb-12 p-6 bg-m3-primary/10 border-l-4 border-m3-primary rounded-2xl">
+                        <div class="flex gap-4 items-start">
+                            <span class="material-symbols-outlined text-m3-primary">info</span>
+                            <p class="text-lg font-bold text-m3-on-surface dark:text-m3-on-surface-dark leading-relaxed" x-text="translations[lang].manualInstallNotice"></p>
+                        </div>
+                    </div>
+                    <p class="text-xl text-m3-on-surface-variant mb-12 text-center lg:text-start leading-relaxed" x-text="lang === 'he' ? 'להלן השלבים הנדרשים להגדרת המערכת באופן ידני. יש להיצמד לסדר הפעולות המדויק לצורך פעולה תקינה.' : 'Follow these steps to manually configure the system. Precise execution is required for proper functionality.'"></p>
                     <div class="hidden lg:block">
                         <div class="p-8 bg-m3-primary/5 rounded-[3rem] border-2 border-m3-primary/10 relative overflow-hidden group">
                            <div class="absolute top-0 left-0 w-2 h-full bg-m3-primary scale-y-0 group-hover:scale-y-100 transition-transform origin-top duration-500"></div>
@@ -302,36 +308,73 @@
         </div>
     </section>
 
-    <!-- Installers Hub -->
+    <!-- Community & Support Hub -->
     <section class="max-w-6xl mx-auto px-6 py-24 border-t border-m3-surface-variant">
-        <h2 class="text-4xl font-black mb-16 text-center" x-text="translations[lang].installersTitle"></h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <!-- Windows Tool -->
-            <a href="https://mitmachim.top/topic/84759/" target="_blank" class="m3-card p-10 flex flex-col gap-4 group">
-                <div class="flex items-center gap-4">
-                    <span class="material-symbols-outlined text-5xl text-m3-on-surface">desktop_windows</span>
-                    <h3 class="text-3xl font-black" x-text="translations[lang].winInstaller"></h3>
+        <h2 class="text-4xl font-black mb-4 text-center" x-text="translations[lang].installersTitle"></h2>
+        <p class="text-xl text-m3-on-surface-variant text-center mb-16" x-text="translations[lang].communityDesc"></p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Discussion Thread -->
+            <a href="https://mitmachim.top/topic/84759/" target="_blank" class="m3-card p-8 flex flex-col gap-6 group hover:-translate-y-2 transition-all">
+                <div class="w-14 h-14 bg-m3-primary/10 rounded-2xl flex items-center justify-center text-m3-primary shrink-0">
+                    <span class="material-symbols-outlined text-3xl">forum</span>
                 </div>
-                <p class="text-m3-on-surface-variant text-lg" x-text="translations[lang].winInstallerDesc"></p>
-                <div class="mt-4 text-m3-on-surface-variant font-bold flex items-center gap-2 group-hover:text-m3-on-surface transition-colors">
-                    <span x-text="translations[lang].forumMain"></span>
+                <div>
+                    <h3 class="text-2xl font-black mb-2" x-text="translations[lang].forumMain"></h3>
+                    <p class="text-m3-on-surface-variant leading-relaxed" x-text="lang === 'he' ? 'הצטרפו לדיון המרכזי, שאלו שאלות וקבלו עזרה מהפורום.' : 'Join the main discussion, ask questions, and get help from the community.'"></p>
+                </div>
+                <div class="mt-auto flex items-center gap-2 text-m3-primary font-bold">
+                    <span x-text="lang === 'he' ? 'לנושא המרכזי' : 'Go to topic'"></span>
                     <span class="material-symbols-outlined text-sm">open_in_new</span>
                 </div>
             </a>
 
-            <!-- Web Tool -->
-            <a href="https://cfopuser.github.io/a-bloq-installer/" target="_blank" class="m3-card p-10 flex flex-col gap-4 border-2 border-m3-primary/30 group">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-4">
-                        <span class="material-symbols-outlined text-5xl text-m3-on-surface">language</span>
-                        <h3 class="text-3xl font-black" x-text="translations[lang].webInstaller"></h3>
-                    </div>
-                    <span class="bg-m3-primary text-m3-on-primary px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider">הכי מהיר שיש</span>
+            <!-- Version Updates -->
+            <a href="https://mitmachim.top/topic/86455/" target="_blank" class="m3-card p-8 flex flex-col gap-6 group hover:-translate-y-2 transition-all">
+                <div class="w-14 h-14 bg-m3-secondary/10 rounded-2xl flex items-center justify-center text-m3-secondary shrink-0">
+                    <span class="material-symbols-outlined text-3xl">history</span>
                 </div>
-                <p class="text-m3-on-surface-variant text-lg" x-text="translations[lang].webInstallerInfo"></p>
-                <div class="mt-4 text-m3-on-surface-variant font-bold flex items-center gap-2 group-hover:text-m3-on-surface transition-colors">
-                    <span x-text="translations[lang].forumWeb"></span>
+                <div>
+                    <h3 class="text-2xl font-black mb-2" x-text="translations[lang].forumUpdates"></h3>
+                    <p class="text-m3-on-surface-variant leading-relaxed" x-text="lang === 'he' ? 'עקבו אחר העדכונים האחרונים ותיעוד הגרסאות של הפרויקט.' : 'Follow the latest updates and version history of the project.'"></p>
+                </div>
+                <div class="mt-auto flex items-center gap-2 text-m3-secondary font-bold">
+                    <span x-text="lang === 'he' ? 'לכל העדכונים' : 'View updates'"></span>
                     <span class="material-symbols-outlined text-sm">open_in_new</span>
+                </div>
+            </a>
+
+            <!-- Web Tool Support -->
+            <a href="https://mitmachim.top/topic/93248/" target="_blank" class="m3-card p-8 flex flex-col gap-6 group hover:-translate-y-2 transition-all">
+                <div class="w-14 h-14 bg-m3-tertiary/10 rounded-2xl flex items-center justify-center text-m3-tertiary shrink-0">
+                    <span class="material-symbols-outlined text-3xl">description</span>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-black mb-2" x-text="translations[lang].forumWeb"></h3>
+                    <p class="text-m3-on-surface-variant leading-relaxed" x-text="lang === 'he' ? 'נושא מפורט על המתקין המקוון ופתרון בעיות.' : 'Detailed guide and troubleshooting for the Web Installer.'"></p>
+                </div>
+                <div class="mt-auto flex items-center gap-2 text-m3-tertiary font-bold">
+                    <span x-text="lang === 'he' ? 'לנושא המלא' : 'Full topic'"></span>
+                    <span class="material-symbols-outlined text-sm">open_in_new</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- Highlighted Web Installer Callout -->
+        <div class="mt-12 bg-gradient-to-br from-m3-primary to-m3-secondary rounded-[3rem] p-1 gap-1">
+            <a href="https://cfopuser.github.io/a-bloq-installer/" target="_blank" class="bg-m3-surface dark:bg-m3-surface-dark rounded-[2.8rem] p-10 flex flex-col md:flex-row items-center justify-between gap-8 group hover:bg-transparent transition-colors duration-500">
+                <div class="flex items-center gap-6">
+                    <div class="w-20 h-20 bg-m3-primary text-m3-on-primary rounded-3xl flex items-center justify-center shadow-xl">
+                        <span class="material-symbols-outlined text-5xl">bolt</span>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-black mb-2 group-hover:text-white transition-colors" x-text="translations[lang].webInstaller"></h3>
+                        <p class="text-xl text-m3-on-surface-variant group-hover:text-white/80 transition-colors" x-text="translations[lang].webInstallerInfo"></p>
+                    </div>
+                </div>
+                <div class="bg-m3-primary text-m3-on-primary px-8 py-4 rounded-full font-black flex items-center gap-3 shadow-lg group-hover:bg-white group-hover:text-m3-primary transition-all">
+                    <span x-text="translations[lang].ctaWebPrimary"></span>
+                    <span class="material-symbols-outlined">arrow_forward</span>
                 </div>
             </a>
         </div>
@@ -357,13 +400,6 @@
             </template>
         </div>
 
-        <!-- Updates Thread Link -->
-        <div class="mt-12 text-center">
-            <a href="https://mitmachim.top/topic/86455/" target="_blank" class="inline-flex items-center gap-2 text-m3-on-surface font-bold hover:text-m3-primary transition-colors decoration-2 underline-offset-4 hover:underline">
-                <span x-text="translations[lang].forumUpdates"></span>
-                <span class="material-symbols-outlined text-sm">open_in_new</span>
-            </a>
-        </div>
     </section>
 
     <!-- Screenshots Gallery -->
@@ -443,36 +479,16 @@
                     <span class="material-symbols-outlined">code</span>
                     <span x-text="translations[lang].github"></span>
                 </a>
-                <a href="https://mitmachim.top/topic/84759/" target="_blank" class="hover:text-m3-primary transition-colors flex items-center gap-2">
-                    <span class="material-symbols-outlined">forum</span>
-                    <span x-text="translations[lang].forumMain"></span>
-                </a>
-                <a href="https://mitmachim.top/topic/86455/" target="_blank" class="hover:text-m3-primary transition-colors flex items-center gap-2">
-                    <span class="material-symbols-outlined">history</span>
-                    <span x-text="translations[lang].forumUpdates"></span>
-                </a>
-                <a href="https://mitmachim.top/topic/93248/" target="_blank" class="hover:text-m3-primary transition-colors flex items-center gap-2">
-                    <span class="material-symbols-outlined">rocket_launch</span>
-                    <span x-text="translations[lang].forumWeb"></span>
-                </a>
             </div>
 
             <div class="max-w-2xl mx-auto p-8 bg-m3-error/5 rounded-[2rem] border border-m3-error/10 mb-12">
                 <p class="text-m3-error font-bold leading-relaxed" x-text="translations[lang].disclaimer"></p>
             </div>
             
-            <p class="text-m3-on-surface-variant/40 dark:text-m3-on-surface-dark/20 font-mono text-xs uppercase tracking-tighter">&copy; 2026 A Bloq Lock Open Source Project. Crafted with professional care.</p>
+            <p class="text-m3-on-surface-variant/40 dark:text-m3-on-surface-dark/20 font-mono text-xs uppercase tracking-tighter">&copy; 2026 A Bloq Lock Open Source Project.</p>
         </div>
     </footer>
 
-    <!-- FAB -->
-    <a href="https://github.com/sesese1234/SecureGuardMDM/releases" target="_blank" 
-       class="fixed bottom-8 bg-m3-primary text-m3-on-primary w-16 h-16 rounded-3xl flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all z-40 group"
-       :class="lang === 'he' ? 'left-8' : 'right-8'">
-        <span class="material-symbols-outlined text-3xl">download</span>
-        <span dir="ltr" class="absolute bg-gray-900 text-white px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity hidden sm:block"
-              :class="lang === 'he' ? 'left-full ml-4' : 'right-full mr-4'">GitHub Releases</span>
-    </a>
 
 </body>
 </html>
