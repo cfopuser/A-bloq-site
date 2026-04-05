@@ -1,0 +1,71 @@
+[x-cloak] { display: none !important; }
+
+/* Custom Scrollbar for Android Look */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 10px; }
+.dark ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); }
+
+/* M3 Elevation & Surfaces */
+.glass { background: rgba(255, 247, 255, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(231, 224, 235, 0.5); }
+.dark .glass { background: rgba(28, 27, 31, 0.7); border-bottom: 1px solid rgba(73, 69, 79, 0.5); }
+
+.m3-card { 
+    background: #E7E0EB; 
+    border-radius: 28px; 
+    transition: all 0.3s cubic-bezier(0.2, 0, 0, 1); 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.dark .m3-card { background: #2B2930; }
+
+.m3-card:hover { 
+    transform: translateY(-2px); 
+    background: #EADDFF; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+}
+.dark .m3-card:hover { background: #36343B; }
+
+/* M3 State Layers (Android Ripple Effect Emulation) */
+.m3-ripple { position: relative; overflow: hidden; }
+.m3-ripple::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: currentColor;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+.m3-ripple:hover::after { opacity: 0.08; }
+.m3-ripple:active::after { opacity: 0.12; }
+
+/* Typography */
+body { 
+    background-color: #FEF7FF; 
+    color: #1D1B20; 
+    font-family: 'Inter', 'Heebo', sans-serif; 
+    transition: background-color 0.4s, color 0.4s;
+    letter-spacing: -0.01em;
+}
+[dir="rtl"] body { font-family: 'Heebo', sans-serif; }
+.dark body { background-color: #1C1B1F; color: #E6E1E5; }
+
+h1, h2, h3 { letter-spacing: -0.02em; }
+
+/* Section Transitions */
+section { opacity: 0; transform: translateY(20px); transition: all 0.8s cubic-bezier(0.2, 0, 0, 1); }
+section.visible { opacity: 1; transform: translateY(0); }
+
+/* M3 Toggle Switch (Android Style) */
+.toggle-switch { 
+    width: 52px; height: 32px; border-radius: 100px; border: 2px solid #79747E; 
+    position: relative; transition: 0.2s cubic-bezier(0.2, 0, 0, 1); 
+}
+.toggle-switch::after { 
+    content: ''; position: absolute; width: 16px; height: 16px; 
+    background: #79747E; border-radius: 50%; top: 50%; left: 4px; 
+    transform: translateY(-50%); transition: 0.2s cubic-bezier(0.2, 0, 0, 1); 
+}
+.toggle-checked { background: #6750A4; border-color: #6750A4; }
+.toggle-checked::after { background: white; width: 24px; height: 24px; left: 20px; }
+[dir="rtl"] .toggle-checked::after { left: auto; right: 20px; }
+[dir="rtl"] .toggle-switch::after { left: auto; right: 4px; }
