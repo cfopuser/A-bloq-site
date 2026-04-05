@@ -56,13 +56,17 @@
             <a href="#features" class="text-sm font-bold opacity-70 hover:opacity-100 hover:text-m3-primary transition-all uppercase tracking-widest whitespace-nowrap" x-text="translations[lang].navFeatures"></a>
             <a href="#install" class="text-sm font-bold opacity-70 hover:opacity-100 hover:text-m3-primary transition-all uppercase tracking-widest whitespace-nowrap" x-text="translations[lang].navInstall"></a>
             <a href="#faq" class="text-sm font-bold opacity-70 hover:opacity-100 hover:text-m3-primary transition-all uppercase tracking-widest whitespace-nowrap" x-text="translations[lang].faqTitle"></a>
-            <a href="https://github.com/sesese1234/SecureGuardMDM" target="_blank" class="text-sm font-bold opacity-70 hover:opacity-100 hover:text-m3-primary transition-all uppercase tracking-widest flex items-center gap-1 whitespace-nowrap">
-                <span x-text="translations[lang].navSource"></span>
-                <span class="material-symbols-outlined text-xs">north_east</span>
-            </a>
         </div>
 
         <div class="flex items-center gap-2 shrink-0">
+            <!-- GitHub Link -->
+            <a href="https://github.com/sesese1234/SecureGuardMDM" target="_blank" 
+               class="p-3 rounded-full hover:bg-m3-surface-variant dark:hover:bg-m3-surface-variant-dark transition-all active:scale-90 m3-ripple"
+               title="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                    <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                </svg>
+            </a>
             <!-- Theme Toggle -->
             <button @click="toggleTheme()" class="p-3 rounded-full hover:bg-m3-surface-variant dark:hover:bg-m3-surface-variant-dark transition-all active:scale-90 m3-ripple shrink-0">
                 <span class="material-symbols-outlined text-2xl" x-text="darkMode ? 'light_mode' : 'dark_mode'"></span>
@@ -401,67 +405,90 @@
     </section>
 
     <!-- Screenshots Gallery -->
-    <section id="gallery" class="bg-m3-surface-variant/10 dark:bg-m3-surface-variant-dark/5 py-24" x-data="{ 
-        selectedScreenshot: null,
+    <section id="gallery" class="bg-m3-surface-variant/10 dark:bg-m3-surface-variant-dark/5 py-24" x-data="{
+        selectedIndex: null,
+        get selectedScreenshot() { return this.selectedIndex !== null ? screenshots[this.selectedIndex] : null; },
+        open(index) { this.selectedIndex = index; },
+        close() { this.selectedIndex = null; },
+        prev() { if (this.selectedIndex > 0) this.selectedIndex--; },
+        next() { if (this.selectedIndex < screenshots.length - 1) this.selectedIndex++; },
         scroll(dir) {
             const container = document.getElementById('gallery-container');
-            const scrollAmount = 300;
-            container.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
+            container.scrollBy({ left: dir * 300, behavior: 'smooth' });
         }
-    }">
+    }" @keydown.escape.window="close()" @keydown.arrow-left.window="selectedIndex !== null && prev()" @keydown.arrow-right.window="selectedIndex !== null && next()">
         <div class="max-w-6xl mx-auto px-6">
             <h2 class="text-4xl font-black mb-16 text-center" x-text="translations[lang].galleryTitle"></h2>
             
             <div class="relative group">
-                <!-- Navigation Buttons (Desktop) -->
+                <!-- Gallery Scroll Arrows (always visible, correct colors) -->
                 <button @click="scroll(lang === 'he' ? 1 : -1)" 
-                        class="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white dark:bg-m3-surface-dark shadow-xl rounded-full items-center justify-center text-m3-on-surface opacity-0 group-hover:opacity-100 transition-all hover:scale-110 active:scale-95">
+                        class="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white dark:bg-m3-surface-variant-dark shadow-xl rounded-full items-center justify-center text-gray-800 dark:text-m3-on-surface-dark opacity-0 group-hover:opacity-100 transition-all hover:scale-110 active:scale-95 border border-gray-200 dark:border-m3-surface-variant-dark">
                     <span class="material-symbols-outlined" x-text="lang === 'he' ? 'chevron_right' : 'chevron_left'"></span>
                 </button>
                 <button @click="scroll(lang === 'he' ? -1 : 1)" 
-                        class="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white dark:bg-m3-surface-dark shadow-xl rounded-full items-center justify-center text-m3-on-surface opacity-0 group-hover:opacity-100 transition-all hover:scale-110 active:scale-95">
+                        class="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white dark:bg-m3-surface-variant-dark shadow-xl rounded-full items-center justify-center text-gray-800 dark:text-m3-on-surface-dark opacity-0 group-hover:opacity-100 transition-all hover:scale-110 active:scale-95 border border-gray-200 dark:border-m3-surface-variant-dark">
                     <span class="material-symbols-outlined" x-text="lang === 'he' ? 'chevron_left' : 'chevron_right'"></span>
                 </button>
 
                 <!-- Scrollable Container -->
                 <div id="gallery-container" class="flex gap-6 overflow-x-auto pb-12 snap-x scrollbar-none scroll-smooth">
-                    <template x-for="name in screenshots" :key="name">
+                    <template x-for="(name, index) in screenshots" :key="name">
                         <div class="snap-start shrink-0">
-                            <div @click="selectedScreenshot = name" 
-                                 class="m3-card overflow-hidden w-[280px] hover:scale-[1.02] transition-transform duration-500 shadow-lg hover:shadow-2xl cursor-pointer">
-                                <img :src="getImageSrc(name)" class="w-full h-auto" loading="lazy">
-                                <div class="p-4 bg-m3-surface-variant/20 backdrop-blur-sm">
-                                    <p class="text-xs font-bold text-center opacity-50 uppercase tracking-tighter" x-text="name.replace(/_/g, ' ')"></p>
-                                </div>
+                            <div @click="open(index)" 
+                                 class="m3-card overflow-hidden w-[280px] hover:scale-[1.02] transition-transform duration-500 shadow-lg dark:shadow-none cursor-pointer m3-ripple">
+                                <img :src="getImageSrc(name)" class="w-full h-auto block" loading="lazy">
                             </div>
                         </div>
                     </template>
                 </div>
                 
                 <!-- Scroll Hints -->
-                <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-m3-background dark:from-m3-background-dark to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-m3-background dark:from-m3-background-dark to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-m3-surface-variant/20 dark:from-m3-surface-dark/60 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-m3-surface-variant/20 dark:from-m3-surface-dark/60 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
         </div>
 
         <!-- Screenshots Lightbox -->
-        <div x-show="selectedScreenshot" 
-             x-transition:enter="transition ease-out duration-300"
-             x-transition:enter-start="opacity-0 scale-95"
-             x-transition:enter-end="opacity-100 scale-100"
+        <div x-show="selectedIndex !== null"
+             x-transition:enter="transition ease-out duration-250"
+             x-transition:enter-start="opacity-0"
+             x-transition:enter-end="opacity-100"
              x-transition:leave="transition ease-in duration-200"
-             x-transition:leave-start="opacity-100 scale-100"
-             x-transition:leave-end="opacity-0 scale-95"
-             class="fixed inset-0 z-[110] flex items-center justify-center p-6 bg-gray-900/95 backdrop-blur-md"
-             @click.self="selectedScreenshot = null"
-             @keydown.escape.window="selectedScreenshot = null">
+             x-transition:leave-start="opacity-100"
+             x-transition:leave-end="opacity-0"
+             class="fixed inset-0 z-[110] flex items-center justify-center bg-black/80 backdrop-blur-xl"
+             @click.self="close()">
             
-            <div class="relative max-w-4xl max-h-[90vh] w-full flex flex-col items-center">
-                <button @click="selectedScreenshot = null" class="absolute -top-12 right-0 text-white hover:text-m3-primary transition-colors">
-                    <span class="material-symbols-outlined text-4xl">close</span>
-                </button>
-                <img :src="selectedScreenshot ? getImageSrc(selectedScreenshot) : ''" class="max-w-full max-h-[80vh] rounded-3xl shadow-2xl border-4 border-white/10">
-                <p class="mt-6 text-white text-xl font-bold uppercase tracking-widest opacity-70" x-text="selectedScreenshot?.replace(/_/g, ' ')"></p>
+            <!-- Modal Card -->
+            <div class="relative flex flex-col items-center max-w-sm w-full mx-4" @click.stop>
+                
+                <!-- Top Bar: name + close button (always in view) -->
+                <div class="w-full flex items-center justify-between mb-4 px-1">
+                    <p class="text-white text-sm font-bold uppercase tracking-widest opacity-70" x-text="selectedScreenshot?.replace(/_/g, ' ')"></p>
+                    <button @click="close()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-m3-primary transition-colors flex items-center justify-center text-white">
+                        <span class="material-symbols-outlined text-xl">close</span>
+                    </button>
+                </div>
+
+                <!-- Image -->
+                <img :src="selectedScreenshot ? getImageSrc(selectedScreenshot) : ''" 
+                     class="max-h-[75vh] w-auto rounded-3xl shadow-2xl border-2 border-white/10 object-contain">
+
+                <!-- Bottom Nav: Prev / Counter / Next -->
+                <div class="flex items-center gap-6 mt-6">
+                    <button @click="prev()" 
+                            :disabled="selectedIndex === 0"
+                            class="w-12 h-12 rounded-full bg-white/10 hover:bg-m3-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all flex items-center justify-center text-white active:scale-90">
+                        <span class="material-symbols-outlined" x-text="lang === 'he' ? 'chevron_right' : 'chevron_left'"></span>
+                    </button>
+                    <span class="text-white/60 text-sm font-mono" x-text="`${selectedIndex + 1} / ${screenshots.length}`"></span>
+                    <button @click="next()"
+                            :disabled="selectedIndex === screenshots.length - 1"
+                            class="w-12 h-12 rounded-full bg-white/10 hover:bg-m3-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all flex items-center justify-center text-white active:scale-90">
+                        <span class="material-symbols-outlined" x-text="lang === 'he' ? 'chevron_left' : 'chevron_right'"></span>
+                    </button>
+                </div>
             </div>
         </div>
     </section>
@@ -472,12 +499,7 @@
             <img src="Images/a-bloq-logo.png" alt="A Bloq Lock" class="w-20 h-20 mx-auto mb-8 grayscale opacity-50 contrast-125 dark:invert">
             <p class="text-2xl text-m3-on-surface-variant dark:text-m3-on-surface-dark mb-12 max-w-3xl mx-auto" x-text="translations[lang].footerDesc"></p>
             
-            <div class="flex flex-wrap justify-center gap-10 mb-16 font-black text-m3-on-surface-variant dark:text-m3-on-surface-dark/50 uppercase tracking-widest text-sm">
-                <a href="https://github.com/sesese1234/SecureGuardMDM" target="_blank" class="hover:text-m3-primary transition-colors flex items-center gap-2">
-                    <span class="material-symbols-outlined">code</span>
-                    <span x-text="translations[lang].github"></span>
-                </a>
-            </div>
+
 
             <div class="max-w-2xl mx-auto p-8 bg-m3-error/5 rounded-[2rem] border border-m3-error/10 mb-12">
                 <p class="text-m3-error font-bold leading-relaxed" x-text="translations[lang].disclaimer"></p>
