@@ -58,7 +58,7 @@
             <a href="#faq" class="text-sm font-bold opacity-70 hover:opacity-100 hover:text-m3-primary transition-all uppercase tracking-widest whitespace-nowrap" x-text="translations[lang].faqTitle"></a>
         </div>
 
-        <div class="flex items-center gap-2 shrink-0">
+        <div class="flex items-center gap-1 sm:gap-2 shrink-0">
             <!-- GitHub Link -->
             <a href="https://github.com/sesese1234/SecureGuardMDM" target="_blank" 
                class="p-3 rounded-full hover:bg-m3-surface-variant dark:hover:bg-m3-surface-variant-dark transition-all active:scale-90 m3-ripple"
@@ -72,22 +72,23 @@
                 <span class="material-symbols-outlined text-2xl" x-text="darkMode ? 'light_mode' : 'dark_mode'"></span>
             </button>
             <!-- Language Toggle -->
-            <button @click="lang = lang === 'he' ? 'en' : 'he'" class="flex items-center gap-2 px-4 py-2 rounded-full border border-m3-on-surface-variant/20 hover:bg-m3-surface-variant dark:hover:bg-m3-surface-variant-dark transition-all active:scale-95 m3-ripple shrink-0 whitespace-nowrap">
+            <button @click="lang = lang === 'he' ? 'en' : 'he'" class="flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 rounded-full border border-m3-on-surface-variant/20 hover:bg-m3-surface-variant dark:hover:bg-m3-surface-variant-dark transition-all active:scale-95 m3-ripple shrink-0 whitespace-nowrap">
                 <span class="material-symbols-outlined text-xl">language</span>
-                <span class="font-bold text-xs uppercase tracking-widest" x-text="lang === 'he' ? 'EN' : 'עברית'"></span>
+                <span class="font-bold text-[10px] sm:text-xs uppercase tracking-widest" x-text="lang === 'he' ? 'EN' : 'עברית'"></span>
             </button>
             <!-- Primary CTA -->
-            <a href="https://cfopuser.github.io/a-bloq-installer/" target="_blank" class="bg-m3-primary text-m3-on-primary px-6 py-2.5 rounded-full font-black text-sm flex items-center gap-2 active:scale-95 transition-all shadow-lg hover:shadow-m3-primary/30 m3-ripple uppercase tracking-wider shrink-0 whitespace-nowrap">
+            <a href="https://cfopuser.github.io/a-bloq-installer/" target="_blank" class="bg-m3-primary text-m3-on-primary px-4 sm:px-6 py-2.5 rounded-full font-black text-sm flex items-center gap-2 active:scale-95 transition-all shadow-lg hover:shadow-m3-primary/30 m3-ripple uppercase tracking-wider shrink-0 whitespace-nowrap">
                 <span class="material-symbols-outlined text-xl">bolt</span>
-                <span class="hidden lg:inline" x-text="translations[lang].ctaWebPrimary"></span>
+                <span class="hidden md:inline" x-text="translations[lang].ctaWebPrimary"></span>
             </a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="max-w-6xl mx-auto px-6 py-24 lg:py-32 flex flex-col lg:flex-row items-center gap-16 overflow-visible">
+    <header class="max-w-6xl mx-auto px-6 py-12 lg:py-32 flex flex-col lg:flex-row items-center gap-12 lg:gap-16 overflow-visible">
         <div class="flex-1 text-center lg:text-start" x-init="$el.classList.add('visible')">
-            <h1 class="text-6xl md:text-8xl font-black text-m3-on-surface dark:text-m3-on-surface-dark mb-8 tracking-tighter leading-none" x-text="translations[lang].subtitle"></h1>
+            <h1 class="text-4xl md:text-8xl font-black text-m3-on-surface dark:text-m3-on-surface-dark mb-6 md:mb-8 tracking-tighter leading-none" x-text="translations[lang].subtitle"></h1>
+
 
             <p class="text-xl md:text-2xl text-m3-on-surface-variant mb-12 leading-relaxed max-w-2xl mx-auto lg:mx-0" x-text="translations[lang].description"></p>
             
@@ -117,20 +118,37 @@
         </div>
     </header>
 
-    <!-- Promo / Advertising Section -->
-    <section class="max-w-6xl mx-auto px-6 py-24 text-center overflow-hidden" x-init="$el.classList.add('visible')">
-        <div class="bg-gradient-to-br from-m3-primary/5 to-m3-surface-variant dark:to-m3-surface-variant-dark rounded-[4rem] p-12 lg:p-24 border border-m3-primary/10 relative">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-m3-primary/10 blur-[80px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
-            <div class="absolute bottom-0 left-0 w-64 h-64 bg-m3-primary/5 blur-[80px] rounded-full -translate-x-1/2 translate-y-1/2"></div>
+    <!-- Cool Clean Promo / Advertising Section (MD3 Clarity Card) -->
+    <section class="max-w-6xl mx-auto px-6 py-24 text-center overflow-visible" x-init="$el.classList.add('visible')">
+        <div class="relative bg-white/40 dark:bg-m3-surface-variant-dark/5 backdrop-blur-2xl rounded-[4rem] p-12 lg:p-24 border border-m3-primary/10 shadow-xl hover:shadow-2xl transition-all duration-700 group overflow-hidden">
             
-            <h2 class="text-4xl md:text-6xl font-black mb-6 tracking-tight" x-text="translations[lang].promoTitle"></h2>
-            <p class="text-2xl md:text-3xl font-bold text-m3-primary mb-12" x-text="translations[lang].promoSubtitle"></p>
-            <p class="text-xl md:text-2xl text-m3-on-surface-variant max-w-4xl mx-auto leading-relaxed" x-text="translations[lang].promoDesc"></p>
-            
-            <div class="mt-16 flex justify-center gap-12 opacity-40 grayscale group hover:grayscale-0 hover:opacity-100 transition-all duration-700">
-                <span class="material-symbols-outlined text-8xl">verified_user</span>
-                <span class="material-symbols-outlined text-8xl">shield_with_heart</span>
-                <span class="material-symbols-outlined text-8xl">engineering</span>
+            <!-- Subtle Clean Background Accents -->
+            <div class="absolute top-0 right-0 w-96 h-96 bg-m3-primary/5 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-m3-primary/5 blur-[100px] rounded-full translate-y-1/2 -translate-x-1/2"></div>
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-m3-primary to-transparent opacity-30 group-hover:opacity-100 transition-opacity"></div>
+
+            <div class="relative z-10">
+                <h2 class="text-3xl md:text-7xl font-black mb-6 md:mb-8 tracking-tighter text-m3-on-surface dark:text-m3-on-surface-dark" x-text="translations[lang].promoTitle"></h2>
+                
+                <p class="text-lg md:text-4xl font-bold text-m3-primary mb-8 md:mb-12 tracking-tight" x-text="translations[lang].promoSubtitle"></p>
+
+                <p class="text-base md:text-2xl text-m3-on-surface-variant max-w-4xl mx-auto leading-relaxed max-w-3xl mb-12 md:mb-20" x-text="translations[lang].promoDesc"></p>
+                
+                <!-- Trust Bar: Sophisticated Clean Minimalist Icons -->
+                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-32 text-m3-on-surface-variant opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000">
+                    <div class="flex flex-col items-center gap-2 md:gap-4">
+                        <span class="material-symbols-outlined text-4xl md:text-7xl">gpp_good</span>
+                        <span class="text-[8px] md:text-xs font-black uppercase tracking-[0.2em] md:tracking-[0.3em]">Verified</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 md:gap-4 text-m3-primary scale-110 md:scale-125 opacity-100 active:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-4xl md:text-7xl font-fill">lock</span>
+                        <span class="text-[8px] md:text-xs font-black uppercase tracking-[0.2em] md:tracking-[0.3em]">Trusted</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 md:gap-4">
+                        <span class="material-symbols-outlined text-4xl md:text-7xl">tune</span>
+                        <span class="text-[8px] md:text-xs font-black uppercase tracking-[0.2em] md:tracking-[0.3em]">Advanced</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -230,7 +248,7 @@
             
             <div class="space-y-4">
                 <!-- Step 1 -->
-                <div class="m3-card p-8 md:p-12 relative overflow-hidden group m3-ripple cursor-pointer">
+                <div class="m3-card p-6 md:p-12 relative overflow-hidden group m3-ripple cursor-pointer">
                     <div class="flex gap-8">
                         <div class="w-14 h-14 bg-m3-primary text-white rounded-2xl flex items-center justify-center font-black text-2xl shrink-0 shadow-lg shadow-m3-primary/20">1</div>
                         <div>
@@ -241,7 +259,7 @@
                 </div>
 
                 <!-- Step 2 -->
-                <div class="m3-card p-8 md:p-12 relative overflow-hidden group m3-ripple cursor-pointer">
+                <div class="m3-card p-6 md:p-12 relative overflow-hidden group m3-ripple cursor-pointer">
                     <div class="flex gap-8">
                         <div class="w-14 h-14 bg-m3-secondary text-white rounded-2xl flex items-center justify-center font-black text-2xl shrink-0">2</div>
                         <div>
@@ -276,7 +294,7 @@
 
 
                 <!-- Step 4 -->
-                <div class="m3-card p-8 md:p-12 relative overflow-hidden group m3-ripple cursor-pointer">
+                <div class="m3-card p-6 md:p-12 relative overflow-hidden group m3-ripple cursor-pointer">
                     <div class="flex gap-8">
                         <div class="w-14 h-14 bg-m3-secondary text-white rounded-2xl flex items-center justify-center font-black text-2xl shrink-0">4</div>
                         <div>
@@ -293,7 +311,7 @@
     <section id="faq" class="max-w-4xl mx-auto px-6 py-32" x-data="{ activeFaq: 0 }" x-init="$el.classList.add('visible')">
         <h2 class="text-5xl font-black mb-16 text-center" x-text="translations[lang].faqTitle"></h2>
         <div class="space-y-6">
-            <template x-for="i in [1,2,3,4]" :key="i">
+            <template x-for="i in [1,2,3,4,5]" :key="i">
                 <div class="m3-card overflow-hidden transition-all duration-500" :class="activeFaq === i ? 'ring-2 ring-m3-primary/30' : ''">
                     <button @click="activeFaq = activeFaq === i ? null : i" class="w-full text-start p-8 flex justify-between items-center group m3-ripple">
                         <span class="text-2xl font-black group-hover:text-m3-primary transition-colors" x-text="translations[lang]['faq'+i+'Q']"></span>
@@ -362,9 +380,8 @@
             </a>
         </div>
 
-        <!-- Highlighted Web Installer Callout -->
         <div class="mt-12 bg-gradient-to-br from-m3-primary to-m3-secondary-container dark:to-m3-primary-container-dark rounded-[3rem] p-1 gap-1">
-            <a href="https://cfopuser.github.io/a-bloq-installer/" target="_blank" class="bg-m3-surface dark:bg-m3-surface-dark rounded-[2.8rem] p-10 flex flex-col md:flex-row items-center justify-between gap-8 group hover:shadow-2xl transition-shadow duration-300 m3-ripple">
+            <a href="https://cfopuser.github.io/a-bloq-installer/" target="_blank" class="bg-m3-surface dark:bg-m3-surface-dark rounded-[2.8rem] p-6 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8 group hover:shadow-2xl transition-shadow duration-300 m3-ripple">
                 <div class="flex items-center gap-6">
                     <div class="w-20 h-20 bg-m3-primary text-m3-on-primary rounded-3xl flex items-center justify-center shadow-xl">
                         <span class="material-symbols-outlined text-5xl">bolt</span>
@@ -424,11 +441,11 @@
                 <!-- Gallery Scroll Arrows (always visible, correct colors) -->
                 <button @click="scroll(lang === 'he' ? 1 : -1)" 
                         class="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white dark:bg-m3-surface-variant-dark shadow-xl rounded-full items-center justify-center text-gray-800 dark:text-m3-on-surface-dark opacity-0 group-hover:opacity-100 transition-all hover:scale-110 active:scale-95 border border-gray-200 dark:border-m3-surface-variant-dark">
-                    <span class="material-symbols-outlined" x-text="lang === 'he' ? 'chevron_right' : 'chevron_left'"></span>
+                    <span class="material-symbols-outlined">chevron_left</span>
                 </button>
                 <button @click="scroll(lang === 'he' ? -1 : 1)" 
                         class="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white dark:bg-m3-surface-variant-dark shadow-xl rounded-full items-center justify-center text-gray-800 dark:text-m3-on-surface-dark opacity-0 group-hover:opacity-100 transition-all hover:scale-110 active:scale-95 border border-gray-200 dark:border-m3-surface-variant-dark">
-                    <span class="material-symbols-outlined" x-text="lang === 'he' ? 'chevron_left' : 'chevron_right'"></span>
+                    <span class="material-symbols-outlined">chevron_right</span>
                 </button>
 
                 <!-- Scrollable Container -->
@@ -436,7 +453,7 @@
                     <template x-for="(name, index) in screenshots" :key="name">
                         <div class="snap-start shrink-0">
                             <div @click="open(index)" 
-                                 class="m3-card overflow-hidden w-[280px] hover:scale-[1.02] transition-transform duration-500 shadow-lg dark:shadow-none cursor-pointer m3-ripple">
+                                 class="m3-card overflow-hidden w-[220px] md:w-[280px] hover:scale-[1.02] transition-transform duration-500 shadow-lg dark:shadow-none cursor-pointer m3-ripple">
                                 <img :src="getImageSrc(name)" class="w-full h-auto block" loading="lazy">
                             </div>
                         </div>
