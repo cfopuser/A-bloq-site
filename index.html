@@ -443,11 +443,11 @@
             
             <div class="relative group">
                 <!-- Gallery Scroll Arrows (always visible, correct colors) -->
-                <button @click="scroll(lang === 'he' ? 1 : -1)" 
+                <button @click="scroll(-1)" 
                         class="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white dark:bg-m3-surface-variant-dark shadow-xl rounded-full items-center justify-center text-gray-800 dark:text-m3-on-surface-dark opacity-0 group-hover:opacity-100 transition-all hover:scale-110 active:scale-95 border border-gray-200 dark:border-m3-surface-variant-dark">
                     <span class="material-symbols-outlined">chevron_left</span>
                 </button>
-                <button @click="scroll(lang === 'he' ? -1 : 1)" 
+                <button @click="scroll(1)" 
                         class="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white dark:bg-m3-surface-variant-dark shadow-xl rounded-full items-center justify-center text-gray-800 dark:text-m3-on-surface-dark opacity-0 group-hover:opacity-100 transition-all hover:scale-110 active:scale-95 border border-gray-200 dark:border-m3-surface-variant-dark">
                     <span class="material-symbols-outlined">chevron_right</span>
                 </button>
