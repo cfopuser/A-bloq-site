@@ -98,11 +98,11 @@
                     <span class="material-symbols-outlined text-3xl">bolt</span>
                     <span x-text="translations[lang].ctaWebPrimary"></span>
                 </a>
-                <a href="https://github.com/sesese1234/SecureGuardMDM/releases" target="_blank" class="w-full sm:w-auto bg-m3-surface-variant dark:bg-m3-surface-variant-dark text-m3-on-surface-variant dark:text-m3-on-surface-dark px-10 py-5 rounded-full text-xl font-black flex items-center justify-center gap-4 active:scale-95 transition-all hover:bg-m3-primary/5 m3-ripple border-2 border-transparent hover:border-m3-primary/30">
-                    <span class="material-symbols-outlined text-3xl">android</span>
-                    <span x-text="translations[lang].ctaDownload"></span>
                 </a>
             </div>
+            <p class="mt-8 text-sm opacity-50 font-bold uppercase tracking-[0.2em] flex items-center justify-center lg:justify-start gap-2" x-init="$el.classList.add('visible')">
+                <span x-text="translations[lang].freeBadge + ' • ' + translations[lang].navSource"></span>
+            </p>
         </div>
         <div class="w-full lg:w-[450px] relative mt-12 lg:mt-0" x-init="$el.classList.add('visible')">
             <div class="absolute -inset-10 bg-gradient-to-tr from-m3-primary/20 to-transparent blur-[100px] rounded-full animate-pulse"></div>
@@ -152,6 +152,10 @@
                     <div class="flex flex-col items-center gap-2 md:gap-4">
                         <span class="material-symbols-outlined text-4xl md:text-7xl">tune</span>
                         <span class="text-[8px] md:text-xs font-black uppercase tracking-[0.2em] md:tracking-[0.3em]">Advanced</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-2 md:gap-4">
+                        <span class="material-symbols-outlined text-4xl md:text-7xl">payments</span>
+                        <span class="text-[8px] md:text-xs font-black uppercase tracking-[0.2em] md:tracking-[0.3em]" x-text="translations[lang].trustFree"></span>
                     </div>
                 </div>
             </div>
@@ -316,7 +320,7 @@
     <section id="faq" class="max-w-4xl mx-auto px-6 py-32" x-data="{ activeFaq: 0 }" x-init="$el.classList.add('visible')">
         <h2 class="text-5xl font-black mb-16 text-center" x-text="translations[lang].faqTitle"></h2>
         <div class="space-y-6">
-            <template x-for="i in [1,2,3,4,5]" :key="i">
+            <template x-for="i in [1,2,3,4,5,6]" :key="i">
                 <div class="m3-card overflow-hidden transition-all duration-500" :class="activeFaq === i ? 'ring-2 ring-m3-primary/30' : ''">
                     <button @click="activeFaq = activeFaq === i ? null : i" class="w-full text-start p-8 flex justify-between items-center group m3-ripple">
                         <span class="text-2xl font-black group-hover:text-m3-primary transition-colors" x-text="translations[lang]['faq'+i+'Q']"></span>

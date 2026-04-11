@@ -1,7 +1,7 @@
 const translations = {
     he: {
         title: 'A Bloq',
-        subtitle: 'נהלו את המכשירים שלכם — ותתמקדו במה שחשוב באמת',
+        subtitle: 'נהלו את המכשירים שלכם — ות תמקדו במה שחשוב באמת',
         description: 'אייבלוק הוא כלי ניהול (מבוסס MDM) המיועד ליצירת סביבה דיגיטלית בטוחה ונקייה מהסחות דעת. המערכת מעניקה לכם שליטה מלאה על רכיבי החומרה והתוכנה, ומאפשרת להגדיר גבולות ברורים עבורכם ועבור ילדיכם. זה הזמן להחזיר את הריכוז למקום הנכון.',
         navFeatures: 'יכולות המערכת',
         navInstall: 'התקנה ידנית',
@@ -73,7 +73,11 @@ const translations = {
         forumGo: 'לנושא המרכזי',
         forumUpdatesGo: 'לכל העדכונים',
         forumWebGo: 'לנושא המלא',
-        latestLabel: ' (הכי חדש)'
+        latestLabel: ' (הכי חדש)',
+        freeBadge: '100% חינם',
+        trustFree: 'חינם',
+        faq6Q: 'כמה עולה להשתמש ב-A Bloq?',
+        faq6A: 'השימוש במערכת ובחסימה הוא חינם לחלוטין! הפרויקט מפותח כקוד פתוח לטובת הכלל וללא מטרות רווח.'
     },
     en: {
         title: 'A Bloq',
@@ -149,7 +153,11 @@ const translations = {
         forumGo: 'To the main discussion',
         forumUpdatesGo: 'View all updates',
         forumWebGo: 'To the full topic',
-        latestLabel: ' (Latest)'
+        latestLabel: ' (Latest)',
+        freeBadge: '100% Free',
+        trustFree: 'Free',
+        faq6Q: 'How much does it cost to use A Bloq?',
+        faq6A: 'Using the system and the block is completely free! The project is developed as open source for the public good and without any profit motive.'
     }
 };
 
