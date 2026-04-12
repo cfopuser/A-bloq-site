@@ -32,6 +32,8 @@ const translations = {
         
         // FAQ Section
         faqTitle: 'שאלות נפוצות ומידע טכני',
+        faqCategory1: 'שאלות על אייבלוק',
+        faqCategory2: 'שאלות על המתקין המקוון',
         faq1Q: 'האם מערכת A Bloq נחשבת לשירות סינון תכנים?',
         faq1A: 'אייבלוק אינו שירות סינון אינטרנט במובן המקובל (כגון נטפרי). זהו כלי ניהול מערכת (MDM) המאפשר לכם להגדיר חסימות פיזיות ותוכנתיות על המכשיר עצמו, ובכך ליצור סביבה מוגנת ובטוחה מפני פריצות דרך או שימוש לא מבוקר.',
         faq2Q: 'האתר מראה הודעה שהדפדפן לא נתמך, מה זה אומר?',
@@ -112,6 +114,8 @@ const translations = {
         
         // FAQ Section
         faqTitle: 'Faq & Technical Info',
+        faqCategory1: 'Questions about A Bloq',
+        faqCategory2: 'Questions about the Web Installer',
         faq1Q: 'Is the A Bloq system considered a content filtering service?',
         faq1A: 'A Bloq is not an internet filtering service in the conventional sense (such as NetFree). It is a system management tool (MDM) that allows you to define physical and software blocks on the device itself, thereby creating a protected and safe environment against breakthroughs or addiction to uncontrolled use.',
         faq2Q: 'The browser displays a "Not Supported" message—what does it mean?',
