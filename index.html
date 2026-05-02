@@ -52,13 +52,24 @@
 
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 glass px-4 h-[72px] flex items-center justify-between transition-all duration-500 overflow-hidden">
-        <div class="flex items-center gap-4 group cursor-pointer shrink-0" @click="window.scrollTo(0,0)">
+        <div class="flex items-center gap-3 group cursor-pointer shrink-0" @click="window.scrollTo(0,0)">
             <div class="p-2 transition-colors">
                 <img alt="A Bloq Lock Logo"
                      :src="darkMode ? 'Images/a-bloq-logo-dark.png' : 'Images/a-bloq-logo.png'"
                      class="w-8 h-8 object-contain transition-opacity hover:opacity-80">
             </div>
             <span class="font-black text-2xl tracking-tighter hidden sm:block text-m3-primary" x-text="translations[lang].title"></span>
+            
+            <!-- Download Counter (Next to Logo) -->
+            <div x-show="totalDownloads" 
+                 class="flex items-center gap-1.5 px-3 py-1 bg-m3-primary text-m3-on-primary rounded-full font-black text-xl tracking-tighter shadow-lg shadow-m3-primary/20 transition-all hover:scale-110 active:scale-95"
+                 x-transition:enter="transition ease-out duration-500"
+                 x-transition:enter-start="opacity-0 -translate-x-4"
+                 x-transition:enter-end="opacity-100 translate-x-0"
+                 title="Total Downloads">
+                 <span class="material-symbols-outlined text-lg leading-none">download</span>
+                 <span x-text="totalDownloads"></span>
+            </div>
         </div>
 
         
@@ -111,7 +122,7 @@
                 </a>
             </div>
             <p class="mt-8 text-sm opacity-50 font-bold uppercase tracking-[0.2em] flex items-center justify-center lg:justify-start gap-2" x-init="$el.classList.add('visible')">
-                <span x-text="translations[lang].freeBadge + ' • ' + translations[lang].navSource + (totalDownloads ? ' • ' + totalDownloads + ' ' + translations[lang].downloadsLabel : '')"></span>
+                <span x-text="translations[lang].freeBadge + ' • ' + translations[lang].navSource"></span>
             </p>
         </div>
         <div class="w-full lg:w-[450px] relative mt-12 lg:mt-0" x-init="$el.classList.add('visible')">
