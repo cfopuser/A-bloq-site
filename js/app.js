@@ -4,6 +4,7 @@ document.addEventListener('alpine:init', () => {
         darkMode: localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches),
         translations: window.translations,
         versions: [],
+        totalDownloads: '',
         toggleTheme() {
             this.darkMode = !this.darkMode;
             localStorage.setItem('theme', this.darkMode ? 'dark' : 'light');
@@ -52,6 +53,29 @@ document.addEventListener('alpine:init', () => {
             }, 800);
 
             document.querySelectorAll('section, header').forEach(el => observer.observe(el));
+
+            // Fetch GitHub downloads
+            this.fetchDownloads();
+        },
+        async fetchDownloads() {
+            try {
+                const response = await fetch('https://api.github.com/repos/sesese1234/SecureGuardMDM/releases');
+                if (!response.ok) return;
+                const releases = await response.json();
+                let count = 0;
+                releases.forEach(release => {
+                    if (release.assets) {
+                        release.assets.forEach(asset => {
+                            count += asset.download_count;
+                        });
+                    }
+                });
+                if (count > 0) {
+                    this.totalDownloads = count.toLocaleString();
+                }
+            } catch (e) {
+                console.error('Failed to fetch downloads:', e);
+            }
         }
     }));
 });

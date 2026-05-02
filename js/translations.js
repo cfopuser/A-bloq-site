@@ -78,6 +78,7 @@ const translations = {
         latestLabel: ' (הכי חדש)',
         freeBadge: '100% חינם',
         trustFree: 'חינם',
+        downloadsLabel: 'הורדות',
         faq6Q: 'כמה עולה להשתמש ב-A Bloq?',
         faq6A: 'השימוש במערכת ובחסימה הוא חינם לחלוטין! הפרויקט מפותח כקוד פתוח לטובת הכלל וללא מטרות רווח.'
     },
@@ -160,6 +161,7 @@ const translations = {
         latestLabel: ' (Latest)',
         freeBadge: '100% Free',
         trustFree: 'Free',
+        downloadsLabel: 'downloads',
         faq6Q: 'How much does it cost to use A Bloq?',
         faq6A: 'Using the system and the block is completely free! The project is developed as open source for the public good and without any profit motive.'
     }

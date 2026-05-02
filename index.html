@@ -13,6 +13,15 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="js/tailwind-config.js"></script>
 
+    <script>
+        // Only run GoatCounter on the production domain
+        if (window.location.hostname !== 'cfopuser.github.io') {
+            window.goatcounter = { no_onload: true };
+        }
+    </script>
+    <script data-goatcounter="https://cfopuser.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,7 +111,7 @@
                 </a>
             </div>
             <p class="mt-8 text-sm opacity-50 font-bold uppercase tracking-[0.2em] flex items-center justify-center lg:justify-start gap-2" x-init="$el.classList.add('visible')">
-                <span x-text="translations[lang].freeBadge + ' • ' + translations[lang].navSource"></span>
+                <span x-text="translations[lang].freeBadge + ' • ' + translations[lang].navSource + (totalDownloads ? ' • ' + totalDownloads + ' ' + translations[lang].downloadsLabel : '')"></span>
             </p>
         </div>
         <div class="w-full lg:w-[450px] relative mt-12 lg:mt-0" x-init="$el.classList.add('visible')">
